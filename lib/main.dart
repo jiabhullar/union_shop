@@ -317,14 +317,16 @@ class HomeScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: const [
                   Text(
-                
-                '© 2025 Union Shop',
-                style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
+                    '© 2025 Union Shop',
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
                   ),
                 ),
+                SizedBox(height:8)
+                Text(
+                  'Home | About | Contact | Privacy Policy',
               ),
           ),
           ],
