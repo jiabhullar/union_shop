@@ -233,6 +233,11 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
 
+            ElevatedButton(
+              onPressed: () {
+              }
+            )
+              }
             // Products Section
             Container(
               color: Colors.white,
