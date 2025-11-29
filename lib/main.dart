@@ -192,7 +192,7 @@ class HomeScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         const Text(
-                          'Placeholder Hero Title',
+                          'Explore the Union Shop Collection',
                           style: TextStyle(
                             fontSize: 32,
                             fontWeight: FontWeight.bold,
