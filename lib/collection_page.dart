@@ -30,9 +30,23 @@ class CollectionPage extends StatelessWidget {
                   onChanged: (value) {},
                 ),
               ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: DropdownButtonFormField<String>(
+                  decoration: const InputDecoration(
+                    labelText: "Filter by",
+                    border: OutlineInputBorder()
+                  ),
+                  items: const [
+                    DropdownMenuItem(value: "all", child: Text("All Items")),
+                    DropdownMenuItem(value: "new", child: Text("New")),
+                    DropdownMenuItem(value: "sale", child: Text("Sale")),
+                  ],
+                  onChanged: (value) {},
+                ),
+              ),
             ],
           ),
-          const SizedBox(height: 16),
         ),
       ),
     );
