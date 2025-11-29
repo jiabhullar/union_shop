@@ -11,21 +11,30 @@ class CollectionPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(collectionName),
       ),
-      body: const SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          padding: const EdgeInsets.all(16.0),
+          child: Row(
             children: [
-              Text(
-                'Collection',
-                style: TextStyle(fontSize: 24),
+              Expanded(
+                child: DropdownButtonFormField<String>(
+                  decoration: const InputDecoration(
+                    labelText: "Sort by",
+                    border: OutlineInputBorder()
+                  ),
+                  items: const [
+                    DropdownMenuItem(value: "popular", child: Text("Most Popular")),
+                    DropdownMenuItem(value: "price_low", child: Text("Price: Low to High")),
+                    DropdownMenuItem(value: "price_high", child: Text("Price: High to Low")),
+                  ],
+                  onChanged: (value) {},
+                ),
               ),
-              SizedBox(height: 16),
             ],
           ),
-        )
-      )
-    ); 
+          const SizedBox(height: 16),
+        ),
+      ),
+    );
   }
 }
