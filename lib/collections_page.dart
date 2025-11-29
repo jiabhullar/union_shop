@@ -17,7 +17,13 @@ class ProductCard extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const SizedBox(height: 4),
+        SizedBox(child: height: 150, 
+        width: double.infinity
+        child: Image.network(
+          imageUrl,
+          fit: BoxFit.cover,
+        ),)
+        const SizedBox(height: 8),
         Text(
           title,
           style: const TextStyle(fontSize: 14, color: Colors.black),
