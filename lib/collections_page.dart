@@ -12,9 +12,18 @@ class CollectionsPage extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          
-        )
-      )
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+              const Text(
+                'Our Collections',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 24),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
