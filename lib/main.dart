@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:union_shop/product_page.dart';
 import 'package:union_shop/about_us.dart';
@@ -324,15 +326,18 @@ class HomeScreen extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                   ),
                 ),
-                SizedBox(height:8)
+                SizedBox(height:8),
                 Text(
                   'Home | About | Contact | Privacy Policy',
-              ),
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 14,
+            ),
           ),
-          ],
-        ),
+        ],
       ),
-    );
+    ),
+  );
   }
 }
 
