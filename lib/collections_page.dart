@@ -81,6 +81,21 @@ class CollectionsPage extends StatelessWidget {
                     price: 'Various Prices',
                     imageUrl: 'https://via.placeholder.com/300x300.png?text=T-Shirts',
               ),
+                  ProductCard(
+                    title: 'T-Shirts Collection',
+                    price: 'Various Prices',
+                    imageUrl: 'https://via.placeholder.com/300x300.png?text=T-Shirts',
+              ),
+                  ProductCard(
+                    title: 'T-Shirts Collection',
+                    price: 'Various Prices',
+                    imageUrl: 'https://via.placeholder.com/300x300.png?text=T-Shirts',
+            ),
+                  ProductCard(
+                    title: 'T-Shirts Collection',
+                    price: 'Various Prices',
+                    imageUrl: 'https://via.placeholder.com/300x300.png?text=T-Shirts',
+              ),
             ],
       ),
 
