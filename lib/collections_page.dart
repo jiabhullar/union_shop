@@ -77,9 +77,9 @@ class CollectionsPage extends StatelessWidget {
                 mainAxisSpacing: 16,
                 children: const [
                   ProductCard(
-                    title: 
-                    price: 
-                    imageUrl: 
+                    title: 'T-Shirts Collection',
+                    price: 'Various Prices',
+                    imageUrl: 'https://via.placeholder.com/300x300.png?text=T-Shirts',
               ),
             ],
       ),
