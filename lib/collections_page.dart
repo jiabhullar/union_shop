@@ -69,6 +69,21 @@ class CollectionsPage extends StatelessWidget {
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 24),
+              GridView.count(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                crossAxisCount: MediaQuery.of(context).size.width > 600 ? 2 : 1,
+                crossAxisSpacing: 
+                mainAxisSpacing: 
+                children: const [
+                  ProductCard(
+                    title: 
+                    price: 
+                    imageUrl: 
+              ),
+            ],
+      ),
+
             ],
           ),
         ),
