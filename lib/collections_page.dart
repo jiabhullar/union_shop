@@ -73,8 +73,8 @@ class CollectionsPage extends StatelessWidget {
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
                 crossAxisCount: MediaQuery.of(context).size.width > 600 ? 2 : 1,
-                crossAxisSpacing: 
-                mainAxisSpacing: 
+                crossAxisSpacing: 16,
+                mainAxisSpacing: 16,
                 children: const [
                   ProductCard(
                     title: 
