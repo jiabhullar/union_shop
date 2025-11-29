@@ -17,12 +17,22 @@ class ProductCard extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(child: height: 150, 
-        width: double.infinity
-        child: Image.network(
+        SizedBox(
+          height: 150, 
+          width: double.infinity,
+          child: Image.network(
           imageUrl,
           fit: BoxFit.cover,
-        ),)
+          errorBuilder: (context, error, stackTrace) {
+            return Container(
+              color: Colors.grey[200],
+              child: const Center(
+              child:  Icon(Icons.image_not_supported, color: Colors.grey),
+            ),
+          );
+        },
+      ),
+    ),
         const SizedBox(height: 8),
         Text(
           title,
