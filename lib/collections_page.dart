@@ -1,5 +1,19 @@
 import 'package:flutter/material.dart';
 
+class ProductCard extends StatelessWidget {
+  final String title;
+  final String price;
+  final String imageUrl;
+
+  const ProductCard({
+    su
+  })
+
+
+
+
+
+
 class CollectionsPage extends StatelessWidget {
   const CollectionsPage({super.key});
 
