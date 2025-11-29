@@ -224,18 +224,31 @@ class ProductPage extends StatelessWidget {
               ),
             ),
 
-            // Footer
+      // Footer
             Container(
               width: double.infinity,
               color: Colors.grey[50],
               padding: const EdgeInsets.all(24),
-              child: const Text(
-                'Placeholder Footer',
+              child: const Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    '© 2025 Union Shop',
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                )
+              ),
+              SizedBox(height: 8),
+              Text(
+                'Home | About | Contact | Privacy Policy',
                 style: TextStyle(
                   color: Colors.grey,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                ),
+                  fontSize: 14,
+                  ),
+                 ),
+                ],
               ),
             ),
           ],
