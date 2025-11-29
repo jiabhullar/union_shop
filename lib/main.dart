@@ -235,9 +235,14 @@ class HomeScreen extends StatelessWidget {
 
             ElevatedButton(
               onPressed: () {
-              }
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const AboutUsPage()),
+                );
+              },
+              
             )
-              }
+          
             // Products Section
             Container(
               color: Colors.white,
