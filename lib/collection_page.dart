@@ -7,6 +7,25 @@ class CollectionPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(); 
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(collectionName),
+      ),
+      body: const SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Collection',
+                style: TextStyle(fontSize: 24),
+              ),
+              SizedBox(height: 16),
+            ],
+          ),
+        )
+      )
+    ); 
   }
 }
