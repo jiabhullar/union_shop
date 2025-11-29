@@ -240,9 +240,19 @@ class HomeScreen extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => const AboutUsPage()),
                 );
               },
-              
-            )
-          
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFF4d2963),
+                foregroundColor: Colors.white,
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.zero,
+                ),
+              ),
+              child: const Text(
+                'ABOUT US',
+                style: TextStyle(fontSize: 14, letterSpacing: 1),
+              ),
+            ),
+
             // Products Section
             Container(
               color: Colors.white,
