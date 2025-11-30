@@ -22,48 +22,47 @@ class _CollectionPageState extends State<CollectionPage> {
           child: Column(
             children: [
               const Text(
-                'Our Collections;,'
+                'Our Collections',
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),
               ),
+              String selectedSort = "popular";
+              String selectedFilter = "all";
               Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(
-                child: DropdownButtonFormField<String>(
-                  decoration: const InputDecoration(
-                    labelText: "Sort by",
-                    border: OutlineInputBorder()
+                children: [
+                  Expanded(
+                    child: DropdownButtonFormField<String>(
+                      value: selectedSort,
+                      decoration: const InputDecoration(labelText: "Sort by", border: OutlineInputBorder()),
+                      items: const [
+                        DropdownMenuItem(value: "popular", child: Text("Most Popular")),
+                        DropdownMenuItem(value: "price_low", child: Text("Price: Low to High")),
+                        DropdownMenuItem(value: "price_high", child: Text("Price: High to Low")),
+                      ],
+                      onChanged: (value) {
+                        setState(() { selectedSort = value!; });
+                      },
+                    ),
                   ),
-                  items: const [
-                    DropdownMenuItem(value: "popular", child: Text("Most Popular")),
-                    DropdownMenuItem(value: "price_low", child: Text("Price: Low to High")),
-                    DropdownMenuItem(value: "price_high", child: Text("Price: High to Low")),
-                  ],
-                  onChanged: (value) {},
-                ),
-              ),
-
-              const SizedBox(width: 12),
-
-              Expanded(
-                child: DropdownButtonFormField<String>(
-                  decoration: const InputDecoration(
-                    labelText: "Filter by",
-                    border: OutlineInputBorder()
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: DropdownButtonFormField<String>(
+                      value: selectedFilter,
+                      decoration: const InputDecoration(labelText: "Filter by", border: OutlineInputBorder()),
+                      items: const [
+                        DropdownMenuItem(value: "all", child: Text("All Items")),
+                        DropdownMenuItem(value: "new", child: Text("New")),
+                        DropdownMenuItem(value: "sale", child: Text("Sale")),
+                      ],
+                      onChanged: (value) {
+                        setState(() { selectedFilter = value!; });
+                      },
+                    ),
                   ),
-                  items: const [
-                    DropdownMenuItem(value: "all", child: Text("All Items")),
-                    DropdownMenuItem(value: "new", child: Text("New")),
-                    DropdownMenuItem(value: "sale", child: Text("Sale")),
-                  ],
-                  onChanged: (value) {},
-                ),
-              ),
-            ],
-          ),
+                ],
+              )
           const SizedBox(height: 20),
 
           GridView.count(
