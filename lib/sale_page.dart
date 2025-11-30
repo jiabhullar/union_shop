@@ -24,6 +24,8 @@ class SalePage extends StatelessWidget {
                 ),
               )
             ),
+            const SizedBox(height: 16),
+            
           ],
         ),
       ),
