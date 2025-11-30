@@ -75,7 +75,7 @@ class _CollectionsPageState extends State<CollectionsPage> {
                   mainAxisSpacing: 16,
                   childAspectRatio: 1,
                 ),
-                
+
                 final filteredProducts = sampleProducts.where((product) {
                   if (selectedFilter == "all") return true;
                   return product.tag == selectedFilter; 
@@ -90,7 +90,11 @@ class _CollectionsPageState extends State<CollectionsPage> {
                     imageUrl: product.imageUrl,
                   );
                 },
-
+                if (selectedSort == "price_low") {
+                  filteredProducts.sort((a, b) => double.parse(a.price.substring(1)).compareTo(double.parse(b.price.substring(1))));
+                } else if (selectedSort == "price_high") {
+                  filteredProducts.sort((a, b) => double.parse(b.price.substring(1)).compareTo(double.parse(a.price.substring(1))));
+                }
         const SizedBox(height: 24),
         // Footer 
         Container(
