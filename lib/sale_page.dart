@@ -5,8 +5,13 @@ class SalePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(), // placeholder
+    return const Scaffold(
+      body: SingleChildScrollView(
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          children: [],
+      ),
+      ),
     );
   }
 }
