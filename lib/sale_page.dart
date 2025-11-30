@@ -50,6 +50,7 @@ class SaleProductTile extends StatelessWidget {
   final String imageUrl;
 
   const SaleProductTile({
+    super.key,
     required this.title,
     required this.originalPrice,
     required this.salePrice,
@@ -61,24 +62,34 @@ class SaleProductTile extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // image will be added later
-        Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
-        const SizedBox(height: 4),
-        Text(
-          originalPrice,
-          style: const TextStyle(
-            color: Colors.grey,
-            decoration: TextDecoration.lineThrough,
+        SizedBox(
+          height: 150,
+          width: double.infinity,
+          child: Image.network(imageUrl,fit: BoxFit.cover,)
           ),
-        ),
-        const SizedBox(height: 2),
-        Text(
-          salePrice,
-          style: const TextStyle(
-            color: Colors.redAccent,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+        const SizedBox(height: 8),
+        Text(title, style: const TextStyle(fontSize: 14)),
+        Row(
+          children: [
+            Text(
+              originalPrice,
+              style: const TextStyle(
+                fontSize: 13,
+                color: Colors.grey,
+                decoration: TextDecoration.lineThrough,
+              ),
+            ),
+            const SizedBox(width: 8),
+            Text(
+              salePrice,
+              style: const TextStyle(
+                fontSize: 14,
+                color: Colors.redAccent,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        )
       ],
     );
   }
