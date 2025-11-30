@@ -84,7 +84,11 @@ class _CollectionPageState extends State<CollectionPage> {
                     ),
                   ),
                   int currentPage = 0;
-                  final int itemsPerPage = 2; // small number so you can see pagination working
+                  final int itemsPerPage = 2; 
+                  final start = currentPage * itemsPerPage;
+                  final end = (start + itemsPerPage).clamp(0, filteredProducts.length);
+                  final paginatedProducts = filteredProducts.sublist(start, end);
+
 
                 ],
               ),
