@@ -33,7 +33,9 @@ class CollectionPage extends StatelessWidget {
                   onChanged: (value) {},
                 ),
               ),
+
               const SizedBox(width: 12),
+
               Expanded(
                 child: DropdownButtonFormField<String>(
                   decoration: const InputDecoration(
@@ -50,16 +52,9 @@ class CollectionPage extends StatelessWidget {
               ),
             ],
           ),
-        ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-          sizedBox(height: 20),
+                    SizedBox(height: 20),
 
-          gridView.count(
+          GridView.count(
             shrinkWrap = true,
             physics = const NeverScrollableScrollPhysics(),
             crossAxisCount = 2,
@@ -85,10 +80,16 @@ class CollectionPage extends StatelessWidget {
                 title: "Lanyard",
                 price: "£2.99",
                 imageUrl: "https://via.placeholder.com/300?text=Lanyard",
+                  ),
+                ],
               ),
-            ]
+            ],
           ),
-
+        ),
+      ),
+    );
+  }
+}
 
 class _ProductTile extends StatelessWidget {
   final String title;
