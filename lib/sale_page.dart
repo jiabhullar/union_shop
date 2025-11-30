@@ -5,19 +5,27 @@ class SalePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
-          children: [],
+          children: [
           Container(
             width: double.infinity,
-            padding: EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(16.0),
             color: Colors.redAccent,
-            child: Text(
-              'Sale Page - Coming Soon!',
-          )
-      ),
+            child: const Text(
+              'SALE - UP TO 50% OFF!',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                ),
+              )
+            ),
+          ],
+        ),
       ),
     );
   }
