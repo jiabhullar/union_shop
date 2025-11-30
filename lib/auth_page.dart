@@ -64,6 +64,44 @@ class AuthPage extends StatelessWidget {
                 onPressed: () {},
                 child: const Text('Don\'t have an account? Sign Up'),
                   ),
+                  Column(
+                    children: [
+                      const SizedBox(height: 32),
+                      const Text('Sign Up', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                      const SizedBox(height: 16),
+                      TextField(
+                        decoration: InputDecoration(
+                          labelText: 'Full Name',
+                          border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      TextField(
+                        decoration: InputDecoration(
+                          labelText: 'Email',
+                          border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      TextField(
+                        obscureText: true,
+                        decoration: InputDecoration(
+                          labelText: 'Password',
+                          border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xFF4d2963),
+                          minimumSize: const Size(double.infinity, 48),
+                        ),
+                        child: const Text('Sign Up'),
+                      ),
+                    ],
+                  )
+
                 ],
               )
             ],
