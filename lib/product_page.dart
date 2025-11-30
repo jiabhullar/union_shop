@@ -29,7 +29,7 @@ class ProductPage extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(vertical: 8),
                     color: const Color(0xFF4d2963),
                     child: const Text(
-                      'PLACEHOLDER HEADER TEXT',
+                      'The Union Shop - Product Details',
                       textAlign: TextAlign.center,
                       style: TextStyle(color: Colors.white, fontSize: 16),
                     ),
@@ -238,7 +238,7 @@ class ProductPage extends StatelessWidget {
                       color: Colors.grey,
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
-                )
+                ),
               ),
               SizedBox(height: 8),
               Text(
