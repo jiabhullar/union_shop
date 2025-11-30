@@ -10,26 +10,40 @@ class AuthPage extends StatelessWidget {
         title: const Text('Sign In / Register'),
         backgroundColor: const Color(0xFF4d2963),
       ),
-      body: const SingleChildScrollView(
-        padding: EdgeInsets.all(16.0),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-           Text(
+           const Text(
               'Welcome to The Union Shop! Please sign in or register to continue.',
               style: TextStyle(
                 fontSize: 28,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 16),
-            Text(
+            const SizedBox(height: 16),
+            const Text(
               'Sign in to your account',
               style: TextStyle(
                 fontSize: 16,
                 color: Colors.grey,
               ),
             ),
-          ],
+          Column(
+            children: [
+              const SizedBox(height: 32),
+              TextField(
+                decoration: InputDecoration(
+                  labelText: 'Email',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 16),
+                ],
+              )
+            ],
         ),
       ),
     );
