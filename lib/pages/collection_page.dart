@@ -14,15 +14,16 @@ class CollectionPage extends StatefulWidget {
 class _CollectionPageState extends State<CollectionPage> {
   String selectedSort = "popular";
   String selectedFilter = "all";
+  
+  final List<Map<String, String>> products = [
+    {"title": "Campus Hoodie", "price": "£29.99", "tag": "new", "imageUrl": "https://via.placeholder.com/300?text=Hoodie"},
+    {"title": "Union Mug", "price": "£9.99", "tag": "sale", "imageUrl": "https://via.placeholder.com/300?text=Mug"},
+    {"title": "Notebook", "price": "£4.99", "tag": "all", "imageUrl": "https://via.placeholder.com/300?text=Notebook"},
+    {"title": "Lanyard", "price": "£2.99", "tag": "all", "imageUrl": "https://via.placeholder.com/300?text=Lanyard"},
+  ];
 
   @override
   Widget build(BuildContext context) {
-     final List<Map<String, String>> products = [
-      {"title": "Campus Hoodie", "price": "£29.99", "tag": "new", "imageUrl": "https://via.placeholder.com/300?text=Hoodie"},
-      {"title": "Union Mug", "price": "£9.99", "tag": "sale", "imageUrl": "https://via.placeholder.com/300?text=Mug"},
-      {"title": "Notebook", "price": "£4.99", "tag": "all", "imageUrl": "https://via.placeholder.com/300?text=Notebook"},
-      {"title": "Lanyard", "price": "£2.99", "tag": "all", "imageUrl": "https://via.placeholder.com/300?text=Lanyard"},
-    ];
       final filteredProducts = products.where((product) {
         if (selectedFilter == "all") return true;
         return product["tag"] == selectedFilter;
