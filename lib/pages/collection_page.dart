@@ -88,8 +88,6 @@ class _CollectionPageState extends State<CollectionPage> {
                   final start = currentPage * itemsPerPage;
                   final end = (start + itemsPerPage).clamp(0, filteredProducts.length);
                   final paginatedProducts = filteredProducts.sublist(start, end);
-
-
                 ],
               ),
           const SizedBox(height: 20),
@@ -103,9 +101,9 @@ class _CollectionPageState extends State<CollectionPage> {
               mainAxisSpacing: 16,
               childAspectRatio: 1,
             ),
-            itemCount: filteredProducts.length,
+            itemCount: paginatedProducts.length,
             itemBuilder: (context, index) {
-              final product = filteredProducts[index];
+              final product = paginatedProducts[index];
               return ProductCard(
                 title: product["title"]!,
                 price: product["price"]!,
