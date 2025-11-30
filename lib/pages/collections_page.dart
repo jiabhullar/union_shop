@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:union_shop/widgets/nav_bar.dart';
-import 'package:union_shop/models/product.dart';
 import 'package:union_shop/data/sample_products.dart';
+import 'package:union_shop/widgets/product_card.dart';
 
 class CollectionsPage extends StatefulWidget {
   const CollectionsPage({super.key});
