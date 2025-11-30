@@ -61,7 +61,7 @@ class HomeScreen extends StatelessWidget {
             ),
             const Spacer(),
             // Desktop links
-            if (MediaQuery.of(context).size.width > 600) ...[
+            if (MediaQuery.of(context).size.width > 600) ...[ // Make navbar responsive
               TextButton(
                 onPressed: () {},
                 child: const Text('Home', style: TextStyle(color: Colors.white)),
