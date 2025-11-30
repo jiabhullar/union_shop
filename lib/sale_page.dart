@@ -24,8 +24,18 @@ class SalePage extends StatelessWidget {
                 ),
               )
             ),
+
             const SizedBox(height: 16),
-            
+
+            GridView.count(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              crossAxisCount: MediaQuery.of(context).size.width > 600 ? 2 : 1,
+              crossAxisSpacing: 16,
+              mainAxisSpacing: 16,
+              children: const [],
+            ),
+
           ],
         ),
       ),
