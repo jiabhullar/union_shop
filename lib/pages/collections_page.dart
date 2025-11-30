@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:union_shop/widgets/nav_bar.dart';
+import 'package:union_shop/models/product.dart';
+import 'package:union_shop/data/sample_products.dart';
 
 
 class ProductCard extends StatelessWidget {
