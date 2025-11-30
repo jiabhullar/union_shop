@@ -14,7 +14,10 @@ class CollectionPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Row(
+          child: Column(
+            children: [
+              Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
                 child: DropdownButtonFormField<String>(
@@ -47,11 +50,45 @@ class CollectionPage extends StatelessWidget {
               ),
             ],
           ),
+        ],
+          ),
         ),
       ),
     );
   }
 }
+          sizedBox(height = 20),
+
+          gridView.count(
+            shrinkWrap = true,
+            physics = const NeverScrollableScrollPhysics(),
+            crossAxisCount = 2,
+            crossAxisSpacing = 16,
+            mainAxisSpacing = 16,
+            children = const [
+              _ProductTile(
+                title: "Campus Hoodie",
+                price: "£29.99",
+                imageUrl: "https://via.placeholder.com/300?text=Hoodie",
+              ),
+              _ProductTile(
+                title: "Union Mug",
+                price: "£9.99",
+                imageUrl: "https://via.placeholder.com/300?text=Mug",
+              ),
+              _ProductTile(
+                title: "Notebook",
+                price: "£4.99",
+                imageUrl: "https://via.placeholder.com/300?text=Notebook",
+              ),
+              _ProductTile(
+                title: "Lanyard",
+                price: "£2.99",
+                imageUrl: "https://via.placeholder.com/300?text=Lanyard",
+              ),
+            ]
+          ),
+
 
 class _ProductTile extends StatelessWidget {
   final String title;
@@ -59,7 +96,6 @@ class _ProductTile extends StatelessWidget {
   final String imageUrl;
 
   const _ProductTile({
-    super.key,
     required this.title,
     required this.price,
     required this.imageUrl,
