@@ -55,8 +55,7 @@ class CollectionsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Collections'),
+      appBar: const NavBar(),
         backgroundColor: const Color(0xFF6200EE),
       ),
       body: SingleChildScrollView(

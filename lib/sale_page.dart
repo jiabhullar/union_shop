@@ -6,6 +6,7 @@ class SalePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: const NavBar(),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(

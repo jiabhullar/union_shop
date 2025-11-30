@@ -9,9 +9,7 @@ class CollectionPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(collectionName),
-      ),
+      appBar: const NavBar(),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
