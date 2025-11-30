@@ -41,6 +41,15 @@ class AuthPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 16),
+              TextField(
+                obscureText: true,
+                decoration: InputDecoration(
+                  labelText: 'Password',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
+              ),
                 ],
               )
             ],
