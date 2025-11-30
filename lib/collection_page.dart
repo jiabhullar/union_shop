@@ -52,7 +52,7 @@ class CollectionPage extends StatelessWidget {
               ),
             ],
           ),
-                    SizedBox(height: 20),
+          const SizedBox(height: 20),
 
           GridView.count(
             shrinkWrap: true,
