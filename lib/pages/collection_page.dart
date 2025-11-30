@@ -111,6 +111,31 @@ class _CollectionPageState extends State<CollectionPage> {
               );
             },
           )
+          const SizedBox(height: 20),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: currentPage > 0
+                    ? () {
+                        setState(() => currentPage--);
+                      }
+                    : null,
+                child: const Text("Previous"),
+              ),
+              const SizedBox(width: 20),
+              ElevatedButton(
+                onPressed: (currentPage + 1) * itemsPerPage < filteredProducts.length
+                    ? () {
+                        setState(() => currentPage++);
+                      }
+                    : null,
+                child: const Text("Next"),
+              ),
+            ],
+          ),
+
             ],
           ),
         ),
