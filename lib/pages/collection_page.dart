@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:union_shop/widgets/nav_bar.dart';
-
+import 'package:union_shop/widgets/product_card.dart'; 
 
 class CollectionPage extends StatefulWidget {
   final String collectionName;
@@ -12,8 +12,31 @@ class CollectionPage extends StatefulWidget {
 }
 
 class _CollectionPageState extends State<CollectionPage> {
+  String selectedSort = "popular";
+  String selectedFilter = "all";
+
   @override
   Widget build(BuildContext context) {
+     final List<Map<String, String>> products = [
+      {"title": "Campus Hoodie", "price": "£29.99", "tag": "new", "imageUrl": "https://via.placeholder.com/300?text=Hoodie"},
+      {"title": "Union Mug", "price": "£9.99", "tag": "sale", "imageUrl": "https://via.placeholder.com/300?text=Mug"},
+      {"title": "Notebook", "price": "£4.99", "tag": "all", "imageUrl": "https://via.placeholder.com/300?text=Notebook"},
+      {"title": "Lanyard", "price": "£2.99", "tag": "all", "imageUrl": "https://via.placeholder.com/300?text=Lanyard"},
+    ];
+      final filteredProducts = products.where((product) {
+        if (selectedFilter == "all") return true;
+        return product["tag"] == selectedFilter;
+      }).toList();
+
+      if (selectedSort == "price_low") {
+        filteredProducts.sort((a, b) =>
+          double.parse(a["price"]!.substring(1))
+              .compareTo(double.parse(b["price"]!.substring(1))));
+      } else if (selectedSort == "price_high") {
+        filteredProducts.sort((a, b) =>
+          double.parse(b["price"]!.substring(1))
+              .compareTo(double.parse(a["price"]!.substring(1))));
+                        }
     return Scaffold(
       appBar: const NavBar(),
       body: SingleChildScrollView(
@@ -28,13 +51,11 @@ class _CollectionPageState extends State<CollectionPage> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              String selectedSort = "popular";
-              String selectedFilter = "all";
               Row(
                 children: [
                   Expanded(
                     child: DropdownButtonFormField<String>(
-                      value: selectedSort,
+                      initialValue: selectedSort,
                       decoration: const InputDecoration(labelText: "Sort by", border: OutlineInputBorder()),
                       items: const [
                         DropdownMenuItem(value: "popular", child: Text("Most Popular")),
@@ -49,7 +70,7 @@ class _CollectionPageState extends State<CollectionPage> {
                   const SizedBox(width: 12),
                   Expanded(
                     child: DropdownButtonFormField<String>(
-                      value: selectedFilter,
+                      initialValue: selectedFilter,
                       decoration: const InputDecoration(labelText: "Filter by", border: OutlineInputBorder()),
                       items: const [
                         DropdownMenuItem(value: "all", child: Text("All Items")),
@@ -59,30 +80,10 @@ class _CollectionPageState extends State<CollectionPage> {
                       onChanged: (value) {
                         setState(() { selectedFilter = value!; });
                       },
-                      final List<Map<String, String>> products = [
-                        {"title": "Campus Hoodie", "price": "£29.99", "tag": "new"},
-                        {"title": "Union Mug", "price": "£9.99", "tag": "sale"},
-                        {"title": "Notebook", "price": "£4.99", "tag": "all"},
-                        {"title": "Lanyard", "price": "£2.99", "tag": "all"},
-                        ];
-                        final filteredProducts = products.where((product) {
-                          if (selectedFilter == "all") return true;
-                          return product["tag"] == selectedFilter;
-                        }).toList();
-
-                        if (selectedSort == "price_low") {
-                          filteredProducts.sort((a, b) =>
-                              double.parse(a["price"]!.substring(1))
-                                  .compareTo(double.parse(b["price"]!.substring(1))));
-                        } else if (selectedSort == "price_high") {
-                          filteredProducts.sort((a, b) =>
-                              double.parse(b["price"]!.substring(1))
-                                  .compareTo(double.parse(a["price"]!.substring(1))));
-                        }
                     ),
                   ),
                 ],
-              )
+              ),
           const SizedBox(height: 20),
 
           GridView.builder(
@@ -98,9 +99,9 @@ class _CollectionPageState extends State<CollectionPage> {
             itemBuilder: (context, index) {
               final product = filteredProducts[index];
               return ProductCard(
-                title: product.title,
-                price: product.price,
-                imageUrl: product.imageUrl,
+                title: product["title"]!,
+                price: product["price"]!,
+                imageUrl: product["imageUrl"] ?? "",
               );
             },
           )
