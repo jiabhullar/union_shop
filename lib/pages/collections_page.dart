@@ -16,6 +16,21 @@ class _CollectionsPageState extends State<CollectionsPage> {
 
   @override
   Widget build(BuildContext context) {
+    // Filter products first
+    List filteredProducts = sampleProducts.where((product) {
+      if (selectedFilter == "all") return true;
+      return product.tag == selectedFilter;
+      }).toList();
+
+    // Sort products
+    if (selectedSort == "price_low") {
+      filteredProducts.sort((a, b) => double.parse(a.price.substring(1))
+          .compareTo(double.parse(b.price.substring(1))));
+    } else if (selectedSort == "price_high") {
+      filteredProducts.sort((a, b) => double.parse(b.price.substring(1))
+          .compareTo(double.parse(a.price.substring(1))));
+    }
+
     return Scaffold(
       appBar: const NavBar(),
       backgroundColor: const Color(0xFF6200EE),
@@ -63,9 +78,7 @@ class _CollectionsPageState extends State<CollectionsPage> {
                   ),
                 ],
               ),
-
               const SizedBox(height: 24),
-
               GridView.builder(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
@@ -75,12 +88,6 @@ class _CollectionsPageState extends State<CollectionsPage> {
                   mainAxisSpacing: 16,
                   childAspectRatio: 1,
                 ),
-
-                final filteredProducts = sampleProducts.where((product) {
-                  if (selectedFilter == "all") return true;
-                  return product.tag == selectedFilter; 
-              }).toList();
-
                 itemCount: filteredProducts.length,
                 itemBuilder: (context, index) {
                   final product = filteredProducts[index];
@@ -90,11 +97,7 @@ class _CollectionsPageState extends State<CollectionsPage> {
                     imageUrl: product.imageUrl,
                   );
                 },
-                if (selectedSort == "price_low") {
-                  filteredProducts.sort((a, b) => double.parse(a.price.substring(1)).compareTo(double.parse(b.price.substring(1))));
-                } else if (selectedSort == "price_high") {
-                  filteredProducts.sort((a, b) => double.parse(b.price.substring(1)).compareTo(double.parse(a.price.substring(1))));
-                }
+              ),
         const SizedBox(height: 24),
         // Footer 
         Container(
