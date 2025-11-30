@@ -121,28 +121,3 @@ class _CollectionPageState extends State<CollectionPage> {
     );
   }
 }
-
-class _ProductTile extends StatelessWidget {
-  final String title;
-  final String price;
-  final String imageUrl;
-
-  const _ProductTile({
-    required this.title,
-    required this.price,
-    required this.imageUrl,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        // image will be added later
-        Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
-        const SizedBox(height: 4),
-        Text(price, style: const TextStyle(color: Colors.grey)),
-      ],
-    );
-  }
-}
