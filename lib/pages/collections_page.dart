@@ -75,16 +75,22 @@ class _CollectionsPageState extends State<CollectionsPage> {
                   mainAxisSpacing: 16,
                   childAspectRatio: 1,
                 ),
-                itemCount: sampleProducts.length,
+                
+                final filteredProducts = sampleProducts.where((product) {
+                  if (selectedFilter == "all") return true;
+                  return product.tag == selectedFilter; 
+              }).toList();
+
+                itemCount: filteredProducts.length,
                 itemBuilder: (context, index) {
-                  final product = sampleProducts[index];
+                  final product = filteredProducts[index];
                   return ProductCard(
                     title: product.title,
                     price: product.price,
                     imageUrl: product.imageUrl,
-                );
-              },
-            ),
+                  );
+                },
+
         const SizedBox(height: 24),
         // Footer 
         Container(
