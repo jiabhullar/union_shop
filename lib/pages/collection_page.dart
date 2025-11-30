@@ -6,7 +6,12 @@ class CollectionPage extends StatefulWidget {
   final String collectionName;
 
   const CollectionPage({super.key, required this.collectionName});
+  
+  @override
+  State<CollectionPage> createState() => _CollectionPageState();
+}
 
+class _CollectionPageState extends State<CollectionPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,6 +21,13 @@ class CollectionPage extends StatefulWidget {
           padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
+              const Text(
+                'Our Collections;,'
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
               Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
