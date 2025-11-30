@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:union_shop/widgets/nav_bar.dart';
 
 
-class CollectionPage extends StatelessWidget {
+class CollectionPage extends StatefulWidget {
   final String collectionName;
 
   const CollectionPage({super.key, required this.collectionName});
