@@ -85,35 +85,25 @@ class _CollectionPageState extends State<CollectionPage> {
               )
           const SizedBox(height: 20),
 
-          GridView.count(
+          GridView.builder(
             shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              crossAxisCount: 2,
+            physics: const NeverScrollableScrollPhysics(),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: MediaQuery.of(context).size.width > 600 ? 2 : 1,
               crossAxisSpacing: 16,
               mainAxisSpacing: 16,
-              children: const [
-              _ProductTile(
-                title: "Campus Hoodie",
-                price: "£29.99",
-                imageUrl: "https://via.placeholder.com/300?text=Hoodie",
-              ),
-              _ProductTile(
-                title: "Union Mug",
-                price: "£9.99",
-                imageUrl: "https://via.placeholder.com/300?text=Mug",
-              ),
-              _ProductTile(
-                title: "Notebook",
-                price: "£4.99",
-                imageUrl: "https://via.placeholder.com/300?text=Notebook",
-              ),
-              _ProductTile(
-                title: "Lanyard",
-                price: "£2.99",
-                imageUrl: "https://via.placeholder.com/300?text=Lanyard",
-                  ),
-                ],
-              ),
+              childAspectRatio: 1,
+            ),
+            itemCount: filteredProducts.length,
+            itemBuilder: (context, index) {
+              final product = filteredProducts[index];
+              return ProductCard(
+                title: product.title,
+                price: product.price,
+                imageUrl: product.imageUrl,
+              );
+            },
+          )
             ],
           ),
         ),
