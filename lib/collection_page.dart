@@ -57,7 +57,7 @@ class CollectionPage extends StatelessWidget {
     );
   }
 }
-          sizedBox(height = 20),
+          sizedBox(height: 20),
 
           gridView.count(
             shrinkWrap = true,
