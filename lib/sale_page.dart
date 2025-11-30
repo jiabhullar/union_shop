@@ -42,3 +42,44 @@ class SalePage extends StatelessWidget {
     );
   }
 }
+
+class SaleProductTile extends StatelessWidget {
+  final String title;
+  final String originalPrice;
+  final String salePrice;
+  final String imageUrl;
+
+  const SaleProductTile({
+    required this.title,
+    required this.originalPrice,
+    required this.salePrice,
+    required this.imageUrl,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        // image will be added later
+        Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
+        const SizedBox(height: 4),
+        Text(
+          originalPrice,
+          style: const TextStyle(
+            color: Colors.grey,
+            decoration: TextDecoration.lineThrough,
+          ),
+        ),
+        const SizedBox(height: 2),
+        Text(
+          salePrice,
+          style: const TextStyle(
+            color: Colors.redAccent,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ],
+    );
+  }
+}
