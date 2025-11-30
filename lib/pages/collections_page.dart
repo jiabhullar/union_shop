@@ -77,11 +77,11 @@ class _CollectionsPageState extends State<CollectionsPage> {
                 ),
                 itemCount: sampleProducts.length,
                 itemBuilder: (context, index) {
-                final product = sampleProducts[index];
-                return ProductCard(
-                  title: product.title,
-                  price: product.price,
-                  imageUrl: product.imageUrl,
+                  final product = sampleProducts[index];
+                  return ProductCard(
+                    title: product.title,
+                    price: product.price,
+                    imageUrl: product.imageUrl,
                 );
               },
             ),
