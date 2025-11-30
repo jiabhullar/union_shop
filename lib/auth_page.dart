@@ -50,6 +50,20 @@ class AuthPage extends StatelessWidget {
                   ),
                 ),
               ),
+              const SizedBox(height: 16),
+              ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFF4d2963),
+                  minimumSize: const Size(double.infinity, 48),
+                ),
+                child: const Text('Sign In'),
+              ),
+              const SizedBox(height: 16),
+              TextButton(
+                onPressed: () {},
+                child: const Text('Don\'t have an account? Sign Up'),
+                  ),
                 ],
               )
             ],
