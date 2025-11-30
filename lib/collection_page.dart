@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:union_shop/product_page.dart';
 
 class CollectionPage extends StatelessWidget {
   final String collectionName;
