@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:union_shop/widgets/nav_bar.dart';
+
 
 class ProductCard extends StatelessWidget {
   final String title;
@@ -56,8 +58,7 @@ class CollectionsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const NavBar(),
-        backgroundColor: const Color(0xFF6200EE),
-      ),
+      backgroundColor: const Color(0xFF6200EE),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
