@@ -59,6 +59,12 @@ class _CollectionPageState extends State<CollectionPage> {
                       onChanged: (value) {
                         setState(() { selectedFilter = value!; });
                       },
+                      final List<Map<String, String>> products = [
+                        {"title": "Campus Hoodie", "price": "£29.99", "tag": "new"},
+                        {"title": "Union Mug", "price": "£9.99", "tag": "sale"},
+                        {"title": "Notebook", "price": "£4.99", "tag": "all"},
+                        {"title": "Lanyard", "price": "£2.99", "tag": "all"},
+                        ];
                     ),
                   ),
                 ],
