@@ -53,8 +53,16 @@ class ProductCard extends StatelessWidget {
   }
 }
 
-class CollectionsPage extends StatelessWidget {
+class CollectionsPage extends StatefulWidget {
   const CollectionsPage({super.key});
+
+  @override
+  State<CollectionsPage> createState() => _CollectionsPageState();
+}
+
+class _CollectionsPageState extends State<CollectionsPage> {
+  String selectedSort = "popular";
+  String selectedFilter = "all";
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +78,43 @@ class CollectionsPage extends StatelessWidget {
                 'Our Collections',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
-              const SizedBox(height: 24)
+               Row(
+                children: [
+                  Expanded(
+                    child: DropdownButton<String>(
+                      value: selectedSort,
+                      items: const [
+                        DropdownMenuItem(value: "popular", child: Text("Most Popular")),
+                        DropdownMenuItem(value: "price_low", child: Text("Price: Low to High")),
+                        DropdownMenuItem(value: "price_high", child: Text("Price: High to Low")),
+                      ],
+                      onChanged: (value) {
+                        setState(() {
+                          selectedSort = value!;
+                        });
+                      },
+                    ),
+                  ),
+                  const SizedBox(width: 16),
+                    Expanded(
+                      child: DropdownButton<String>(
+                        value: selectedFilter,
+                        items: const [
+                          DropdownMenuItem(value: "all", child: Text("All Items")),
+                          DropdownMenuItem(value: "new", child: Text("New")),
+                          DropdownMenuItem(value: "sale", child: Text("Sale")),
+                        ],
+                      onChanged: (value) {
+                        setState(() {
+                          selectedFilter = value!;
+                        });
+                      },
+                    ),
+                  ),
+                ],
+              ),
+
+              const SizedBox(height: 24),
 
               GridView.builder(
                 shrinkWrap: true,
