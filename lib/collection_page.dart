@@ -55,12 +55,12 @@ class CollectionPage extends StatelessWidget {
                     SizedBox(height: 20),
 
           GridView.count(
-            shrinkWrap = true,
-            physics = const NeverScrollableScrollPhysics(),
-            crossAxisCount = 2,
-            crossAxisSpacing = 16,
-            mainAxisSpacing = 16,
-            children = const [
+            shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              crossAxisCount: 2,
+              crossAxisSpacing: 16,
+              mainAxisSpacing: 16,
+              children: const [
               _ProductTile(
                 title: "Campus Hoodie",
                 price: "£29.99",
