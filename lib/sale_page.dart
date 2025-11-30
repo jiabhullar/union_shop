@@ -33,7 +33,20 @@ class SalePage extends StatelessWidget {
               crossAxisCount: MediaQuery.of(context).size.width > 600 ? 2 : 1,
               crossAxisSpacing: 16,
               mainAxisSpacing: 16,
-              children: const [],
+              children: const [
+                SaleProductTile(
+                    title: "Campus Hoodie",
+                    originalPrice: "£39.99",
+                    salePrice: "£29.99",
+                    imageUrl: "https://via.placeholder.com/300?text=Hoodie",
+                  ),
+                  SaleProductTile(
+                    title: "Union Mug",
+                    originalPrice: "£12.99",
+                    salePrice: "£9.99",
+                    imageUrl: "https://via.placeholder.com/300?text=Mug",
+                  ),
+              ],
             ),
 
           ],
