@@ -70,36 +70,27 @@ class CollectionsPage extends StatelessWidget {
                 'Our Collections',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
-              const SizedBox(height: 24),
-              GridView.count(
+              const SizedBox(height: 24)
+
+              GridView.builder(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
-                crossAxisCount: MediaQuery.of(context).size.width > 600 ? 2 : 1,
-                crossAxisSpacing: 16,
-                mainAxisSpacing: 16,
-                children: const [
-                  ProductCard(
-                    title: 'T-Shirts Collection',
-                    price: 'Various Prices',
-                    imageUrl: 'https://via.placeholder.com/300x300.png?text=T-Shirts',
-              ),
-                  ProductCard(
-                    title: 'Mugs Collection',
-                    price: 'Various Prices',
-                    imageUrl: 'https://via.placeholder.com/300x300.png?text=Mugs',
-              ),
-                  ProductCard(
-                    title: 'Stationery Collection',
-                    price: 'Various Prices',
-                    imageUrl: 'https://via.placeholder.com/300x300.png?text=Stationery',
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: MediaQuery.of(context).size.width > 600 ? 2 : 1,
+                  crossAxisSpacing: 16,
+                  mainAxisSpacing: 16,
+                  childAspectRatio: 1,
+                ),
+                itemCount: sampleProducts.length,
+                itemBuilder: (context, index) {
+                final product = sampleProducts[index];
+                return _ProductTile(
+                  title: product.title,
+                  price: product.price,
+                  imageUrl: product.imageUrl,
+                );
+              },
             ),
-                  ProductCard(
-                    title: 'Accessories Collection',
-                    price: 'Various Prices',
-                    imageUrl: 'https://via.placeholder.com/300x300.png?text=Accessories',
-              ),
-            ],
-      ),
         const SizedBox(height: 24),
         // Footer 
         Container(
