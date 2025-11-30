@@ -83,6 +83,9 @@ class _CollectionPageState extends State<CollectionPage> {
                       },
                     ),
                   ),
+                  int currentPage = 0;
+                  final int itemsPerPage = 2; // small number so you can see pagination working
+
                 ],
               ),
           const SizedBox(height: 20),
