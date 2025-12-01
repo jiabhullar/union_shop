@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:union_shop/widgets/nav_bar.dart';
 import 'package:union_shop/data/sample_products.dart';
 import 'package:union_shop/widgets/product_card.dart';
+import 'package:union_shop/models/product.dart';
 
 class CollectionsPage extends StatefulWidget {
   const CollectionsPage({super.key});
@@ -78,26 +79,34 @@ class _CollectionsPageState extends State<CollectionsPage> {
                   ),
                 ],
               ),
-              const SizedBox(height: 24),
-              GridView.builder(
+              GridView.count(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: MediaQuery.of(context).size.width > 600 ? 2 : 1,
-                  crossAxisSpacing: 16,
-                  mainAxisSpacing: 16,
-                  childAspectRatio: 1,
-                ),
-                itemCount: filteredProducts.length,
-                itemBuilder: (context, index) {
-                  final product = filteredProducts[index];
-                  return ProductCard(
-                    title: product.title,
-                    price: product.price,
-                    imageUrl: product.imageUrl,
-                  );
-                },
+                crossAxisCount: 2,
+                children: [
+                  ProductCard(
+                    product: Product(
+                      title: 'Placeholder Product 1',
+                      price: '10.00',
+                      imageUrl: 'https://shop.upsu.net/cdn/shop/files/product1.jpg',
+                      onSale: false,
+                      tag: 'new',
+                      description: 'Sample description',
+                    ),
+                  ),
+                  ProductCard(
+                    product: Product(
+                      title: 'Placeholder Product 2',
+                      price: '15.00',
+                      imageUrl: 'https://shop.upsu.net/cdn/shop/files/product2.jpg',
+                      onSale: false,
+                      tag: 'new',
+                      description: 'Sample description',
+                    ),
+                  ),
+                ],
               ),
+
         const SizedBox(height: 24),
         // Footer 
         Container(

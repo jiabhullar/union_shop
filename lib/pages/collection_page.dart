@@ -47,7 +47,7 @@ class _CollectionPageState extends State<CollectionPage> {
 
       final start = currentPage * itemsPerPage;
       final end = (start + itemsPerPage).clamp(0, filteredProducts.length);
-      final paginatedProducts = filteredProducts.sublist(start, end);
+      filteredProducts.sublist(start, end);
             
     return Scaffold(
       appBar: const NavBar(),
@@ -97,30 +97,34 @@ class _CollectionPageState extends State<CollectionPage> {
                 ],
               ),
           const SizedBox(height: 20),
-
-          GridView.builder(
+          GridView.count(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: MediaQuery.of(context).size.width > 600 ? 2 : 1,
-              crossAxisSpacing: 16,
-              mainAxisSpacing: 16,
-              childAspectRatio: 1,
-            ),
-            itemCount: paginatedProducts.length,
-            itemBuilder: (context, index) {
-              final product = paginatedProducts[index];
-              return ProductCard(
-                title: product.title,
-                price: "£${product.price}",
-                imageUrl: product.imageUrl,
-              );
-
-            },
+            crossAxisCount: 2,
+            children: [
+              ProductCard(
+                product: Product(
+                  title: 'Placeholder Product 1',
+                  price: '10.00',
+                  imageUrl: 'https://shop.upsu.net/cdn/shop/files/product1.jpg',
+                  onSale: false,
+                  tag: 'new',
+                  description: 'Sample description',
+                ),
+              ),
+              ProductCard(
+                product: Product(
+                  title: 'Placeholder Product 2',
+                  price: '15.00',
+                  imageUrl: 'https://shop.upsu.net/cdn/shop/files/product2.jpg',
+                  onSale: false,
+                  tag: 'new',
+                  description: 'Sample description',
+                ),
+              ),
+            ],
           ),
-
           const SizedBox(height: 20),
-
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
