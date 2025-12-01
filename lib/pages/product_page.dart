@@ -170,8 +170,8 @@ class _ProductPageState extends State<ProductPage> {
                   );
                 },
               ),
-                    ),
-                  ),
+            ),
+          ],
 
                   const SizedBox(height: 24),
 
@@ -249,7 +249,6 @@ class _ProductPageState extends State<ProductPage> {
                     onPressed: () {}, 
                     child: const Text("Add to Cart"),
                   ), 
-                ],
               ),
             ),
       // Footer
