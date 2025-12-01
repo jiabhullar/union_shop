@@ -4,15 +4,11 @@ import 'package:union_shop/pages/product_page.dart';
 
 
 class ProductCard extends StatelessWidget {
-  final String title;
-  final String price;
-  final String imageUrl;
+  final Product product;
 
   const ProductCard({
     super.key,
-    required this.title,
-    required this.price,
-    required this.imageUrl,
+    required this.product,
   });
 
   @override
@@ -24,27 +20,27 @@ class ProductCard extends StatelessWidget {
           height: 150, 
           width: double.infinity,
           child: Image.network(
-          imageUrl,
-          fit: BoxFit.cover,
-          errorBuilder: (context, error, stackTrace) {
-            return Container(
-              color: Colors.grey[200],
-              child: const Center(
-              child:  Icon(Icons.image_not_supported, color: Colors.grey),
-            ),
-          );
-        },
-      ),
+            product.imageUrl,
+            fit: BoxFit.cover,
+            errorBuilder: (context, error, stackTrace) {
+              return Container(
+                color: Colors.grey[200],
+                child: const Center(
+                  child: Icon(Icons.image_not_supported, color: Colors.grey),
+                ),
+              );
+            },
+          ),
     ),
         const SizedBox(height: 8),
         Text(
-          title,
+          product.title,
           style: const TextStyle(fontSize: 14, color: Colors.black),
           maxLines: 2,
         ),
         const SizedBox(height: 4),
         Text(
-          price,
+          '£${product.price}',
           style: const TextStyle(fontSize: 13, color: Colors.grey),
         ),
       ],
