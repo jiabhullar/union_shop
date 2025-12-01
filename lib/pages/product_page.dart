@@ -222,10 +222,38 @@ class _ProductPageState extends State<ProductPage> {
                       height: 1.5,
                     ),
                   ),
+                  // Size dropdown
+                  DropdownButton<String>(
+                    value: selectedSize,
+                    items: ['S', 'M', 'L', 'XL']
+                        .map((size) => DropdownMenuItem(value: size, child: Text(size)))
+                        .toList(),
+                    onChanged: (value) {
+                      setState(() => selectedSize = value!);
+                    },
+                  ),
+
+                  const SizedBox(height: 16),
+
+                  // Quantity counter
+                  Row(
+                    children: [
+                      IconButton(
+                        icon: const Icon(Icons.remove),
+                        onPressed: () {
+                          if (quantity > 1) setState(() => quantity--);
+                        },
+                      ),
+                      Text(quantity.toString()),
+                      IconButton(
+                        icon: const Icon(Icons.add),
+                        onPressed: () => setState(() => quantity++),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
-
       // Footer
             Container(
               width: double.infinity,
