@@ -20,24 +20,29 @@ class _CollectionPageState extends State<CollectionPage> {
   int currentPage = 0;
   final int itemsPerPage = 2; 
 
-  final List<Product> products =
-      ProductService.getProductsForCollection(widget.collectionName);
+  List<Product> products = [];
+  
+  @override
+  void initState() {
+    super.initState();
+    products = ProductService.getProductsForCollection(widget.collectionName);
+  }
 
   @override
   Widget build(BuildContext context) {
       final filteredProducts = products.where((product) {
         if (selectedFilter == "all") return true;
-        return product["tag"] == selectedFilter;
+        return product.tag == selectedFilter;
       }).toList();
 
       if (selectedSort == "price_low") {
         filteredProducts.sort((a, b) =>
-          double.parse(a["price"]!.substring(1))
-              .compareTo(double.parse(b["price"]!.substring(1))));
+          double.parse(a.price.substring(1))
+              .compareTo(double.parse(b.price.substring(1))));
       } else if (selectedSort == "price_high") {
         filteredProducts.sort((a, b) =>
-          double.parse(b["price"]!.substring(1))
-              .compareTo(double.parse(a["price"]!.substring(1))));
+          double.parse(b.price.substring(1))
+              .compareTo(double.parse(a.price.substring(1))));
       }
 
       final start = currentPage * itemsPerPage;
