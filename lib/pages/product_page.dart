@@ -151,6 +151,7 @@ class _ProductPageState extends State<ProductPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // Product image
+                  // Product image
                   Container(
                     height: 300,
                     width: double.infinity,
@@ -158,25 +159,25 @@ class _ProductPageState extends State<ProductPage> {
                       borderRadius: BorderRadius.circular(8),
                       color: Colors.grey[200],
                     ),
-               child: Image.network(
-                widget.product.imageUrl,
-                fit: BoxFit.cover,
-                errorBuilder: (context, error, stackTrace) {
-                  return Container(
-                    color: Colors.grey[300],
-                    child: const Center(
-                      child: Icon(Icons.image_not_supported, size: 64, color: Colors.grey),
+                    child: Image.network(
+                      widget.product.imageUrl,
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) {
+                        return Container(
+                          color: Colors.grey[300],
+                          child: const Center(
+                            child: Icon(
+                              Icons.image_not_supported,
+                              size: 64,
+                            ),
+                          ),
+                        );
+                      },
                     ),
-                  );
-                },
-              ),
-            ),
-          ],
-
+                  ),
                   const SizedBox(height: 24),
-
                   // Product name
-                  Text(
+                    Text(
                     widget.product.title,
                     style: const TextStyle(
                       fontSize: 28,
@@ -196,10 +197,7 @@ class _ProductPageState extends State<ProductPage> {
                         color: Color(0xFF4d2963),
                     ),
                   ),
-                  
-
                   const SizedBox(height: 24),
-
                   // Product description
                   Text(
                     widget.product.description,
@@ -249,7 +247,8 @@ class _ProductPageState extends State<ProductPage> {
                     onPressed: () {}, 
                     child: const Text("Add to Cart"),
                   ), 
-              ),
+                ],
+            ),
             ),
       // Footer
             Container(
