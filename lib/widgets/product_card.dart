@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:union_shop/models/product.dart';
+import 'package:union_shop/pages/product_page.dart';
+
 
 class ProductCard extends StatelessWidget {
   final String title;
