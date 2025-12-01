@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:union_shop/widgets/nav_bar.dart';
+import 'package:union_shop/models/product.dart';
 import 'package:union_shop/widgets/product_card.dart'; 
+import 'package:union_shop/services/product_service.dart';
 
 class CollectionPage extends StatefulWidget {
   final String collectionName;
@@ -17,13 +19,9 @@ class _CollectionPageState extends State<CollectionPage> {
 
   int currentPage = 0;
   final int itemsPerPage = 2; 
-  
-  final List<Map<String, String>> products = [
-    {"title": "Campus Hoodie", "price": "£29.99", "tag": "new", "imageUrl": "https://via.placeholder.com/300?text=Hoodie"},
-    {"title": "Union Mug", "price": "£9.99", "tag": "sale", "imageUrl": "https://via.placeholder.com/300?text=Mug"},
-    {"title": "Notebook", "price": "£4.99", "tag": "all", "imageUrl": "https://via.placeholder.com/300?text=Notebook"},
-    {"title": "Lanyard", "price": "£2.99", "tag": "all", "imageUrl": "https://via.placeholder.com/300?text=Lanyard"},
-  ];
+
+  final List<Product> products =
+      ProductService.getProductsForCollection(widget.collectionName);
 
   @override
   Widget build(BuildContext context) {
