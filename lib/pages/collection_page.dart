@@ -14,6 +14,9 @@ class CollectionPage extends StatefulWidget {
 class _CollectionPageState extends State<CollectionPage> {
   String selectedSort = "popular";
   String selectedFilter = "all";
+
+  int currentPage = 0;
+  final int itemsPerPage = 2; 
   
   final List<Map<String, String>> products = [
     {"title": "Campus Hoodie", "price": "£29.99", "tag": "new", "imageUrl": "https://via.placeholder.com/300?text=Hoodie"},
@@ -37,7 +40,12 @@ class _CollectionPageState extends State<CollectionPage> {
         filteredProducts.sort((a, b) =>
           double.parse(b["price"]!.substring(1))
               .compareTo(double.parse(a["price"]!.substring(1))));
-                        }
+      }
+
+      final start = currentPage * itemsPerPage;
+      final end = (start + itemsPerPage).clamp(0, filteredProducts.length);
+      final paginatedProducts = filteredProducts.sublist(start, end);
+            
     return Scaffold(
       appBar: const NavBar(),
       body: SingleChildScrollView(
@@ -83,11 +91,6 @@ class _CollectionPageState extends State<CollectionPage> {
                       },
                     ),
                   ),
-                  int currentPage = 0;
-                  final int itemsPerPage = 2; 
-                  final start = currentPage * itemsPerPage;
-                  final end = (start + itemsPerPage).clamp(0, filteredProducts.length);
-                  final paginatedProducts = filteredProducts.sublist(start, end);
                 ],
               ),
           const SizedBox(height: 20),
@@ -110,7 +113,8 @@ class _CollectionPageState extends State<CollectionPage> {
                 imageUrl: product["imageUrl"] ?? "",
               );
             },
-          )
+          ),
+
           const SizedBox(height: 20),
 
           Row(
@@ -132,10 +136,9 @@ class _CollectionPageState extends State<CollectionPage> {
                       }
                     : null,
                 child: const Text("Next"),
+                  ),
+                ],
               ),
-            ],
-          ),
-
             ],
           ),
         ),
