@@ -232,9 +232,7 @@ class _ProductPageState extends State<ProductPage> {
                       setState(() => selectedSize = value!);
                     },
                   ),
-
                   const SizedBox(height: 16),
-
                   // Quantity counter
                   Row(
                     children: [
@@ -251,6 +249,10 @@ class _ProductPageState extends State<ProductPage> {
                       ),
                     ],
                   ),
+                  ElevatedButton(
+                    onPressed: () {}, 
+                    child: const Text("Add to Cart"),
+                  ), 
                 ],
               ),
             ),
