@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:union_shop/models/product.dart';
-import 'package:union_shop/pages/product_page.dart';
-
 
 class ProductCard extends StatelessWidget {
   final Product product;
@@ -42,6 +40,22 @@ class ProductCard extends StatelessWidget {
         Text(
           '£${product.price}',
           style: const TextStyle(fontSize: 13, color: Colors.grey),
+        ),
+        return GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ProductPage(product: product),
+            ),
+          );
+        },
+        child: const Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // ... Image, Text widgets
+            ],
+          ),
         ),
       ],
     );
