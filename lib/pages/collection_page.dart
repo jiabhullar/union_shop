@@ -106,10 +106,11 @@ class _CollectionPageState extends State<CollectionPage> {
             itemBuilder: (context, index) {
               final product = paginatedProducts[index];
               return ProductCard(
-                title: product["title"]!,
-                price: product["price"]!,
-                imageUrl: product["imageUrl"] ?? "",
+                title: product.title,
+                price: "£${product.price}",
+                imageUrl: product.imageUrl,
               );
+
             },
           ),
 
