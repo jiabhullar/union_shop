@@ -2,9 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:union_shop/widgets/nav_bar.dart';
 
 
-class ProductPage extends StatelessWidget {
-  const ProductPage({super.key});
+class ProductPage extends StatefulWidget {
+  final Product product;
 
+  const ProductPage({super.key, required this.product});
+
+  @override
+  State<ProductPage> createState() => _ProductPageState();
+}
+
+class _ProductPageState extends State<ProductPage> {
+  int quantity = 1;
+  String selectedSize = "M"; 
   void navigateToHome(BuildContext context) {
     Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
   }
