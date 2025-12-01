@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:union_shop/widgets/nav_bar.dart';
+import 'package:union_shop/models/product.dart';
 
 
 class ProductPage extends StatefulWidget {
@@ -191,9 +192,9 @@ class _ProductPageState extends State<ProductPage> {
                   const SizedBox(height: 24),
 
                   // Product name
-                  const Text(
-                    'Placeholder Product Name',
-                    style: TextStyle(
+                  Text(
+                    widget.product.title,
+                    style: const TextStyle(
                       fontSize: 28,
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
@@ -203,21 +204,22 @@ class _ProductPageState extends State<ProductPage> {
                   const SizedBox(height: 12),
 
                   // Product price
-                  const Text(
-                    '£15.00',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFF4d2963),
+                  Text(
+                    "£${widget.product.price}",
+                    style: const TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xFF4d2963),
                     ),
                   ),
+                  
 
                   const SizedBox(height: 24),
 
                   // Product description
-                  const Text(
-                    'Description',
-                    style: TextStyle(
+                  Text(
+                    widget.product.description,
+                    style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w600,
                       color: Colors.black,
