@@ -4,6 +4,7 @@ class Product {
   final String imageUrl;
   final bool onSale;
   final String tag;
+  final String description;
 
   Product({
     required this.title,
@@ -11,5 +12,6 @@ class Product {
     required this.imageUrl,
     this.onSale = false,  
     required this.tag,
+    required this.description,
   });
 }
