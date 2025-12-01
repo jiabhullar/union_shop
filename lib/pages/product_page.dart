@@ -158,22 +158,18 @@ class _ProductPageState extends State<ProductPage> {
                       borderRadius: BorderRadius.circular(8),
                       color: Colors.grey[200],
                     ),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(8),
-                      child: widget.product.imageUrl != null
-                            ? Image.network(
-                            widget.product.imageUrl!,
-                            fit: BoxFit.cover,
-                            errorBuilder: (context, error, stackTrace) {
-                              return Container(
-                                color: Colors.grey[300],
-                                child: const Center(
-                                  child: Icon(Icons.image_not_supported, size: 64, color: Colors.grey),
-                                ),
-                              );
-                            },
-                          )
-                        : const Center(child: Text('No image available')),
+               child: Image.network(
+                widget.product.imageUrl,
+                fit: BoxFit.cover,
+                errorBuilder: (context, error, stackTrace) {
+                  return Container(
+                    color: Colors.grey[300],
+                    child: const Center(
+                      child: Icon(Icons.image_not_supported, size: 64, color: Colors.grey),
+                    ),
+                  );
+                },
+              ),
                     ),
                   ),
 
