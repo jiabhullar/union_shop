@@ -5,8 +5,17 @@ import 'package:union_shop/models/product.dart';
 
 class ProductPage extends StatefulWidget {
   final Product product;
-
-  const ProductPage({super.key, required this.product});
+  ProductPage(
+    product: Product(
+      title: 'Sample Product',
+      price: '15.00',
+      imageUrl: 'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
+      onSale: false,
+      tag: 'new',
+      description: 'This is a sample product',
+      ),
+    );
+  
 
   @override
   State<ProductPage> createState() => _ProductPageState();

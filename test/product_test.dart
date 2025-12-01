@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:union_shop/pages/product_page.dart';
+import 'package:union_shop/models/product.dart';
 
 void main() {
   group('Product Page Tests', () {
     Widget createTestWidget() {
-      return const MaterialApp(home: ProductPage);
+      return MaterialApp(home: ProductPage(product: Product(
+        title: 'Sample Product',
+        price: '15.00',
+        imageUrl: 'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
+        onSale: false,
+        tag: 'new',
+        description: 'This is a sample product',
+      )));
     }
 
     testWidgets('should display product page with basic elements', (
