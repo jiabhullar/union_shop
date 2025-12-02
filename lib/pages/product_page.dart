@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:union_shop/widgets/nav_bar.dart';
 import 'package:union_shop/models/product.dart';
+import 'package:union_shop/services/cart_service.dart';
 
 class ProductPage extends StatefulWidget {
   final Product product;
