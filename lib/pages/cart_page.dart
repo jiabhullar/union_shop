@@ -11,3 +11,5 @@ class CartPage extends StatefulWidget {
 }
 
 void refresh() => setState(() {});
+
+final items = CartService.instance.items;
