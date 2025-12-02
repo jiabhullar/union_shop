@@ -15,9 +15,29 @@ class AboutUsPage extends StatelessWidget {
           child: Column(
             children: [
               const Text(
-                'Welcome to The Union Shop! We are dedicated to providing students with high-quality merchandise that represents our campus spirit. Our mission is to offer a wide range of products, from apparel to accessories, that allow students to showcase their pride and support for our university. We believe in fostering a sense of community and belonging through our carefully curated selection of items. Thank you for choosing The Union Shop as your go-to destination for all things campus-related!',
-                style: TextStyle(fontSize: 16),
+                "About Us",
+              style: TextStyle(
+                fontSize: 32,
+                fontWeight: FontWeight.bold,
               ),
+            ),
+            const SizedBox(height: 16), 
+            Image.asset(
+              "assets/images/about_header.jpg",
+              height: 250,
+              width: double.infinity,
+              fit: BoxFit.cover,
+            ),
+
+            const SizedBox(height: 24),
+
+            const Text(
+              "We are the official Union Shop for students at the University of Portsmouth..."
+              "\n\nOur mission is to provide high-quality merchandise that represents the student community.",
+              style: TextStyle(fontSize: 18, height: 1.5),
+            ),
+            
+            const SizedBox(height: 32),
               // Footer
               Container(
                 width: double.infinity,
