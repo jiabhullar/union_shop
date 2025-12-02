@@ -30,7 +30,7 @@ class _CartPageState extends State<CartPage> {
                     final CartItem item = items[index];
                     final price = double.tryParse(item.product.price.replaceAll('£', '')) ?? 0;
                     return ListTile(
-                      leading: Image.network(item.product.imageUrl, width: 50, height: 50),
+                      leading: Image.asset(item.product.imageUrl, width: 50, height: 50),
                       title: Text(item.product.title),
                       subtitle: Text('Size: ${item.size} — £${price.toStringAsFixed(2)}'),
                         trailing: Row(

@@ -160,7 +160,7 @@ class _ProductPageState extends State<ProductPage> {
                       borderRadius: BorderRadius.circular(8),
                       color: Colors.grey[200],
                     ),
-                    child: Image.network(
+                    child: Image.asset(
                       widget.product.imageUrl,
                       fit: BoxFit.cover,
                       errorBuilder: (context, error, stackTrace) {
