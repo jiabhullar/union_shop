@@ -16,8 +16,24 @@ class _PersonalisationPageState extends State<PersonalisationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: 
+      appBar: const NavBar(),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
+                        DropdownButton<String>(
+              value: selectedProductType,
+              items: ["T-Shirt", "Hoodie", "Mug"]
+                  .map((p) => DropdownMenuItem(value: p, child: Text(p)))
+                  .toList(),
+              onChanged: (value) {
+                setState(() => selectedProductType = value!);
+              },
+            ),
+            const SizedBox(height: 20),            
+          ],
+        ),
+      ),
+    );
+  }
+}
