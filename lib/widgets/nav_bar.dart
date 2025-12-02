@@ -49,17 +49,27 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
               onPressed: () => Navigator.pushNamed(context, '/auth'),
               child: const Text('Account', style: TextStyle(color: Colors.white)),
             ),
-          ] else ...[
-            IconButton(
-              icon: const Icon(Icons.menu, color: Colors.white),
-              onPressed: () {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text("Menu coming soon")),
-                );
-              },
-            )
-          ]
+  ]else ...[
+  IconButton(
+    icon: const Icon(Icons.menu, color: Colors.white),
+    onPressed: () {
+      showModalBottomSheet(
+        context: context,
+        builder: (_) => Column(
+          children: [
+            ListTile(title: const Text("Home"), onTap: () => Navigator.pushNamed(context, '/')),
+            ListTile(title: const Text("Collections"), onTap: () => Navigator.pushNamed(context, '/collections')),
+            ListTile(title: const Text("Sale"), onTap: () => Navigator.pushNamed(context, '/sale')),
+            ListTile(title: const Text("About"), onTap: () => Navigator.pushNamed(context, '/about')),
+            ListTile(title: const Text("Cart"), onTap: () => Navigator.pushNamed(context, '/cart')),
+            ListTile(title: const Text("Account"), onTap: () => Navigator.pushNamed(context, '/auth')),
+          ],
+        ),
+      );
+    },
+  )
         ],
+      ],
       ),
     );
   }
