@@ -10,6 +10,7 @@ class CartPage extends StatefulWidget {
   State<CartPage> createState() => _CartPageState();
 }
 
-void refresh() => setState(() {});
+  void refresh() => setState(() {});
 
-final items = CartService.instance.items;
+  final items = CartService.instance.items;
+  final total = CartService.instance.getTotal();
