@@ -82,7 +82,7 @@ class _CollectionsPageState extends State<CollectionsPage> {
               GridView.count(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
-                crossAxisCount: 2,
+                crossAxisCount: MediaQuery.of(context).size.width > 800 ? 4 : 2,
                 crossAxisSpacing: 16,
                 mainAxisSpacing: 16,
                 children: filteredProducts
