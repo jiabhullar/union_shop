@@ -234,9 +234,19 @@ class _ProductPageState extends State<ProductPage> {
                     ],
                   ),
                   ElevatedButton(
-                    onPressed: () {}, 
+                    onPressed: () {
+                      CartService.instance.addToCart(
+                        widget.product,
+                        quantity: quantity,
+                        size: selectedSize,
+                      );
+
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text('${widget.product.title} added to cart!')),
+                      );
+                    }, 
                     child: const Text("Add to Cart"),
-                  ), 
+                  ),
                 ],
             ),
             ),
