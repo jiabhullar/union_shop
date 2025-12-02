@@ -19,7 +19,18 @@ class UnionShopApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF4d2963)),
       ),
-            home: const HomeScreen(),
+        initialRoute: '/',
+        routes: {
+          '/': (context) => const HomePage(),
+          '/about': (context) => const AboutUsPage(),
+          '/cart': (context) => const CartPage(),
+          '/auth': (context) => const AuthPage(),
+          '/personalise': (context) => const PersonalisationPage(),
+
+          // Generic collections route - ensure your constructor matches
+          '/collections': (context) =>
+              const CollectionPage(collectionName: "All Products"),
+        },
     );
   }
 }
