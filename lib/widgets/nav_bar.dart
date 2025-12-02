@@ -10,22 +10,27 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Row(
         children: [
-          const Text(
-            'Union Shop',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
+          TextButton(
+            onPressed: () => Navigator.pushNamed(context, '/'),
+            child: const Text(
+              'Union Shop',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
+
           const Spacer(),
+
           if (MediaQuery.of(context).size.width > 600) ...[
             TextButton(
-              onPressed: () {},
+              onPressed: () => Navigator.pushNamed(context, '/'),
               child: const Text('Home', style: TextStyle(color: Colors.white)),
             ),
             TextButton(
-              onPressed: () {},
+              onPressed: () => Navigator.pushNamed(context, '/collections'),
               child: const Text('Collections', style: TextStyle(color: Colors.white)),
             ),
             TextButton(
@@ -33,7 +38,7 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
               child: const Text('Sale', style: TextStyle(color: Colors.white)),
             ),
             TextButton(
-              onPressed: () {},
+              onPressed: () => Navigator.pushNamed(context, '/about'),
               child: const Text('About', style: TextStyle(color: Colors.white)),
             ),
           ] else ...[
