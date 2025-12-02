@@ -74,39 +74,44 @@ class SaleProductTile extends StatelessWidget {
   });
 
   @override
+
+  @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        SizedBox(
-          height: 150,
-          width: double.infinity,
-          child: Image.network(imageUrl,fit: BoxFit.cover,)
+    return Scaffold(
+      appBar: const NavBar(),
+      body: Column(
+        children: [
+          const SizedBox(height: 16),
+          const Text(
+            "Sale",
+            style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
           ),
-        const SizedBox(height: 8),
-        Text(title, style: const TextStyle(fontSize: 14)),
-        Row(
-          children: [
-            Text(
-              originalPrice,
-              style: const TextStyle(
-                fontSize: 13,
-                color: Colors.grey,
-                decoration: TextDecoration.lineThrough,
-              ),
+          const SizedBox(height: 16),
+
+          Expanded(
+            child: ListView(
+              padding: const EdgeInsets.all(16),
+              children: [
+                ListTile(
+                  leading: Image.asset("assets/images/sale_item.jpg"),
+                  title: const Text("Hoodie"),
+                  subtitle: const Text("Was £30.00"),
+                  trailing: const Text(
+                    "£20.00",
+                    style: TextStyle(
+                      color: Colors.red,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
+                  ),
+                ),
+              ],
             ),
-            const SizedBox(width: 8),
-            Text(
-              salePrice,
-              style: const TextStyle(
-                fontSize: 14,
-                color: Colors.redAccent,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ],
-        )
-      ],
+          ),
+
+          const Footer(),
+        ],
+      ),
     );
   }
 }
