@@ -12,12 +12,13 @@ class CartPage extends StatefulWidget {
 }
 
 class _CartPageState extends State<CartPage> {
-  void refresh() => setState(() {});
+  void rebuild() => setState(() {});
  
  @override
   Widget build(BuildContext context) {
-    final items = CartService.instance.items;
-    final total = CartService.instance.getTotal();
+    final cart = CartService.instance;
+    final List<CartItem> items = cart.items;
+
     return Scaffold(
       appBar: const NavBar(),
       body: items.isEmpty
@@ -71,14 +72,14 @@ class _CartPageState extends State<CartPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Total: £${total.toStringAsFixed(2)}", style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                      Text("Total: £${cart.getTotal().toStringAsFixed(2)}", style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                       ElevatedButton(
                         onPressed: () {
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(content: Text("Checkout complete!")),
                           );
                           CartService.instance.clearCart();
-                          refresh();
+                          rebuild();
                         },
                         child: const Text("Checkout"),
                       ),

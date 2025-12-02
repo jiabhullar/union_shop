@@ -24,7 +24,7 @@ class AboutUsPage extends StatelessWidget {
             ),
             const SizedBox(height: 16), 
             Image.asset(
-              "assets/images/about_header.jpg",
+              "assets/images/aboutus.jpeg",
               height: 250,
               width: double.infinity,
               fit: BoxFit.cover,
