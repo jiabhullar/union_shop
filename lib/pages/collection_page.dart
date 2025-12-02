@@ -47,7 +47,7 @@ class _CollectionPageState extends State<CollectionPage> {
 
       final start = currentPage * itemsPerPage;
       final end = (start + itemsPerPage).clamp(0, filteredProducts.length);
-      filteredProducts.sublist(start, end);
+      final List<Product> pageItems = filteredProducts.sublist(start, end);
             
     return Scaffold(
       appBar: const NavBar(),
