@@ -25,5 +25,13 @@ void addToCart(Product product, {int quantity = 1, String size = 'M'}) {
 void removeFromCart(CartItem item) {
   _items.remove(item);
 }
+double getTotal() {
+  double total = 0;
+  for (var item in _items) {
+    final price = double.tryParse(item.product.price.replaceAll('£', '')) ?? 0;
+    total += price * item.quantity;
+  }
+  return total;
+}
 
 }
