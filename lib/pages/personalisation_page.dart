@@ -30,7 +30,16 @@ class _PersonalisationPageState extends State<PersonalisationPage> {
                 setState(() => selectedProductType = value!);
               },
             ),
-            const SizedBox(height: 20),            
+            const SizedBox(height: 20),  
+              TextField(
+                decoration: const InputDecoration(
+                  labelText: "Text to print",
+                  border: OutlineInputBorder(),
+                ),
+                onChanged: (value) => setState(() => textInput = value),
+            ),
+
+            const SizedBox(height: 20),          
           ],
         ),
       ),
