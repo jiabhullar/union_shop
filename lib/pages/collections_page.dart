@@ -5,16 +5,17 @@ import 'package:union_shop/widgets/product_card.dart';
 import 'package:union_shop/models/product.dart';
 import 'package:union_shop/widgets/footer.dart';
 
-class CollectionsPage extends StatefulWidget {
+class CollectionsPage extends StatelessWidget {
   const CollectionsPage({super.key});
 
-  @override
-  State<CollectionsPage> createState() => _CollectionsPageState();
-}
-
-class _CollectionsPageState extends State<CollectionsPage> {
-  String selectedSort = "popular";
-  String selectedFilter = "all";
+    final List<Map<String, String>> collections = const [
+    {"name": "Clothing", "image": "assets/images/collection_clothing.jpg"},
+    {"name": "Accessories", "image": "assets/images/collection_accessories.jpg"},
+    {"name": "Stationery", "image": "assets/images/collection_stationery.jpg"},
+    {"name": "Gifts", "image": "assets/images/collection_gifts.jpg"},
+    {"name": "Union Merch", "image": "assets/images/collection_union.jpg"},
+    {"name": "Sale", "image": "assets/images/collection_sale.jpg"},
+  ];
 
   @override
   Widget build(BuildContext context) {
