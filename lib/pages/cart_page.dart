@@ -12,7 +12,7 @@ class CartPage extends StatefulWidget {
 }
 
 class _CartPageState extends State<CartPage> {
-  void rebuild() => setState(() {});
+  void refresh() => setState(() {});
  
  @override
   Widget build(BuildContext context) {
@@ -79,14 +79,14 @@ class _CartPageState extends State<CartPage> {
                             const SnackBar(content: Text("Checkout complete!")),
                           );
                           CartService.instance.clearCart();
-                          rebuild();
+                          refresh();
                         },
                         child: const Text("Checkout"),
                       ),
-                      const Footer(),
                     ],
                   ),
                 ),
+                const Footer(),
               ],
             ),
     );

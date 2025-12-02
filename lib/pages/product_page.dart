@@ -61,7 +61,7 @@ class _ProductPageState extends State<ProductPage> {
                               navigateToHome(context);
                             },
                             child: Image.asset(
-                              'https://shop.upsu.net/cdn/shop/files/upsu_300x300.png?v=1614735854',
+                              'assets/images/upsu.jpeg',
                               height: 18,
                               fit: BoxFit.cover,
                               errorBuilder: (context, error, stackTrace) {
