@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'pages/about_us.dart';
-import 'package:union_shop/pages/product_page.dart';
+import 'pages/product_page.dart';
 import 'widgets/nav_bar.dart';
 import 'models/product.dart';
+import 'pages/cart_page.dart';
+import 'pages/auth_page.dart';
+import 'pages/personalisation_page.dart';
+import 'pages/collection_page.dart';
 
 void main() {
   runApp(const UnionShopApp());
@@ -26,8 +30,6 @@ class UnionShopApp extends StatelessWidget {
           '/cart': (context) => const CartPage(),
           '/auth': (context) => const AuthPage(),
           '/personalise': (context) => const PersonalisationPage(),
-
-          // Generic collections route - ensure your constructor matches
           '/collections': (context) =>
               const CollectionPage(collectionName: "All Products"),
         },
