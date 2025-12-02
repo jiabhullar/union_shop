@@ -28,10 +28,11 @@ class _CartPageState extends State<CartPage> {
                   itemCount: items.length,
                   itemBuilder: (context, index) {
                     final CartItem item = items[index];
-                  },
-              ),
-            ],
-    ),
-          );
-  }
-}
+                    final price = double.tryParse(item.product.price.replaceAll('£', '')) ?? 0;
+                      return ListTile(
+                        leading: Image.network(item.product.imageUrl, width: 50, height: 50),
+                        title: Text(item.product.title),
+                        subtitle: Text('Size: ${item.size}'),
+                        trailing: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
