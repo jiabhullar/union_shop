@@ -51,6 +51,14 @@ class _CartPageState extends State<CartPage> {
                                 setState(() => item.quantity++);
                               },
                             ),
+                            IconButton(
+                              icon: const Icon(Icons.delete),
+                              onPressed: () {
+                                setState(() {
+                                  CartService.instance.removeFromCart(item);
+                                });
+                              },
+                            ),
                           ],
                         ),
                       );
