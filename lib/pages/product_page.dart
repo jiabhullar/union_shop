@@ -60,7 +60,7 @@ class _ProductPageState extends State<ProductPage> {
                             onTap: () {
                               navigateToHome(context);
                             },
-                            child: Image.network(
+                            child: Image.asset(
                               'https://shop.upsu.net/cdn/shop/files/upsu_300x300.png?v=1614735854',
                               height: 18,
                               fit: BoxFit.cover,

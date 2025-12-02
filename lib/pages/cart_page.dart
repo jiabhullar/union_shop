@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../widgets/nav_bar.dart';
-import '../services/cart_service.dart';
-import '../models/cart_item.dart';
+import 'package:union_shop/widgets/nav_bar.dart';
+import 'package:union_shop/services/cart_service.dart';
+import 'package:union_shop/models/cart_item.dart';
 
 class CartPage extends StatefulWidget {
   const CartPage({super.key});
