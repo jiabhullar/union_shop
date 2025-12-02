@@ -18,20 +18,17 @@ class CollectionsPage extends StatelessWidget {
   ];
 
   @override
-  Widget build(BuildContext context) {
-    // Filter products first
-    List<Product> filteredProducts = sampleProducts.where((product) {
-      if (selectedFilter == "all") return true;
-      return product.tag == selectedFilter;
-      }).toList();
-    // Sort products
-    if (selectedSort == "price_low") {
-      filteredProducts.sort((a, b) => double.parse(a.price.substring(1))
-          .compareTo(double.parse(b.price.substring(1))));
-    } else if (selectedSort == "price_high") {
-      filteredProducts.sort((a, b) => double.parse(b.price.substring(1))
-          .compareTo(double.parse(a.price.substring(1))));
-    }
+    Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: const NavBar(),
+      body: Column(
+        children: [
+          const SizedBox(height: 16),
+          const Text(
+            "Collections",
+            style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 16),
 
     return Scaffold(
       appBar: const NavBar(),
