@@ -18,11 +18,10 @@ class _CollectionsPageState extends State<CollectionsPage> {
   @override
   Widget build(BuildContext context) {
     // Filter products first
-    List filteredProducts = sampleProducts.where((product) {
+    List<Product> filteredProducts = sampleProducts.where((product) {
       if (selectedFilter == "all") return true;
       return product.tag == selectedFilter;
       }).toList();
-
     // Sort products
     if (selectedSort == "price_low") {
       filteredProducts.sort((a, b) => double.parse(a.price.substring(1))
@@ -79,34 +78,17 @@ class _CollectionsPageState extends State<CollectionsPage> {
                   ),
                 ],
               ),
+              const SizedBox(height: 16),
               GridView.count(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
                 crossAxisCount: 2,
-                children: [
-                  ProductCard(
-                    product: Product(
-                      title: 'Placeholder Product 1',
-                      price: '10.00',
-                      imageUrl: 'https://shop.upsu.net/cdn/shop/files/product1.jpg',
-                      onSale: false,
-                      tag: 'new',
-                      description: 'Sample description',
-                    ),
-                  ),
-                  ProductCard(
-                    product: Product(
-                      title: 'Placeholder Product 2',
-                      price: '15.00',
-                      imageUrl: 'https://shop.upsu.net/cdn/shop/files/product2.jpg',
-                      onSale: false,
-                      tag: 'new',
-                      description: 'Sample description',
-                    ),
-                  ),
-                ],
+                crossAxisSpacing: 16,
+                mainAxisSpacing: 16,
+                children: filteredProducts
+                    .map((product) => ProductCard(product: product))
+                    .toList(),
               ),
-
         const SizedBox(height: 24),
         // Footer 
         Container(
