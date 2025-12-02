@@ -34,17 +34,29 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
               child: const Text('Collections', style: TextStyle(color: Colors.white)),
             ),
             TextButton(
-              onPressed: () {},
+              onPressed: () => Navigator.pushNamed(context, '/collections', arguments: "sale"),
               child: const Text('Sale', style: TextStyle(color: Colors.white)),
             ),
             TextButton(
               onPressed: () => Navigator.pushNamed(context, '/about'),
               child: const Text('About', style: TextStyle(color: Colors.white)),
             ),
+            TextButton(
+              onPressed: () => Navigator.pushNamed(context, '/cart'),
+              child: const Text('Cart', style: TextStyle(color: Colors.white)),
+            ),
+            TextButton(
+              onPressed: () => Navigator.pushNamed(context, '/auth'),
+              child: const Text('Account', style: TextStyle(color: Colors.white)),
+            ),
           ] else ...[
             IconButton(
               icon: const Icon(Icons.menu, color: Colors.white),
-              onPressed: () {},
+              onPressed: () {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text("Menu coming soon")),
+                );
+              },
             )
           ]
         ],
