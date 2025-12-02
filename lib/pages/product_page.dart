@@ -150,8 +150,6 @@ class _ProductPageState extends State<ProductPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Product image
-                  // Product image
                   Container(
                     height: 300,
                     width: double.infinity,
@@ -205,15 +203,6 @@ class _ProductPageState extends State<ProductPage> {
                       fontSize: 18,
                       fontWeight: FontWeight.w600,
                       color: Colors.black,
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  const Text(
-                    'This is a placeholder description for the product. Students should replace this with real product information and implement proper data management.',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.grey,
-                      height: 1.5,
                     ),
                   ),
                   // Size dropdown
