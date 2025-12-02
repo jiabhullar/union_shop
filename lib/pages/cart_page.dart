@@ -21,6 +21,17 @@ class _CartPageState extends State<CartPage> {
       appBar: const NavBar(),
       body: items.isEmpty
           ? const Center(child: Text("Your cart is empty")),
-          
+          : Column(
+            children: [
+              Expanded(
+                child: ListView.builder(
+                  itemCount: items.length,
+                  itemBuilder: (context, index) {
+                    final CartItem item = items[index];
+                  },
+              ),
+            ],
+    ),
+          );
   }
-  
+}
