@@ -31,15 +31,40 @@ class _PersonalisationPageState extends State<PersonalisationPage> {
               },
             ),
             const SizedBox(height: 20),  
-              TextField(
-                decoration: const InputDecoration(
-                  labelText: "Text to print",
-                  border: OutlineInputBorder(),
-                ),
-                onChanged: (value) => setState(() => textInput = value),
+            TextField(
+              decoration: const InputDecoration(
+                labelText: "Text to print",
+                border: OutlineInputBorder(),
+              ),
+              onChanged: (value) => setState(() => textInput = value),
             ),
+            const SizedBox(height: 20),       
+            if (selectedProductType == "T-Shirt" || selectedProductType == "Hoodie")
+              DropdownButton<String>(
+                value: colour,
+                onChanged: (value) => setState(() => colour = value!),
+                items: ["Black", "White", "Red", "Blue"]
+                    .map((c) => DropdownMenuItem(value: c, child: Text(c)))
+                    .toList(),
+              ),
 
-            const SizedBox(height: 20),          
+            if (selectedProductType == "Mug")
+              const Text("Mugs have a default white colour."),
+
+            const Spacer(),
+
+            ElevatedButton(
+              onPressed: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(
+                      "Order placed: $selectedProductType with '$textInput' in $colour",
+                    ),
+                  ),
+                );
+              },
+              child: const Text("Submit Personalisation"),
+            ),
           ],
         ),
       ),
