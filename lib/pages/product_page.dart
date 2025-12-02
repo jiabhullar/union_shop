@@ -3,7 +3,7 @@ import 'package:union_shop/widgets/nav_bar.dart';
 import 'package:union_shop/models/product.dart';
 import 'package:union_shop/services/cart_service.dart';
 import 'package:union_shop/pages/personalisation_page.dart';
-
+import 'package:union_shop/widgets/footer.dart';
 
 class ProductPage extends StatefulWidget {
   final Product product;
@@ -261,33 +261,7 @@ class _ProductPageState extends State<ProductPage> {
                 ],
             ),
             ),
-      // Footer
-            Container(
-              width: double.infinity,
-              color: Colors.grey[50],
-              padding: const EdgeInsets.all(24),
-              child: const Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    '© 2025 Union Shop',
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                ),
-              ),
-              SizedBox(height: 8),
-              Text(
-                'Home | About | Contact | Privacy Policy',
-                style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 14,
-                  ),
-                 ),
-                ],
-              ),
-            ),
+            const Footer()
           ],
         ),
       ),

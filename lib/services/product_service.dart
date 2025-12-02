@@ -6,14 +6,14 @@ class ProductService {
       Product(
         title: "Campus Hoodie",
         price: ("29.99"),
-        tag: "new",
+        tag: "new" "all",
         imageUrl: "assets/images/hoodie.jpeg",
         description: "A comfortable hoodie perfect for campus life.",   
       ),
       Product(
         title: "Union Mug",
         price: ("9.99"),
-        tag: "sale",
+        tag: "sale" "all",
         imageUrl: "assets/images/mug.jpeg",
         description: "A stylish mug to enjoy your favorite beverages.",
       ),
@@ -27,7 +27,7 @@ class ProductService {
       Product(
         title: "Lanyard",
         price: ("2.99"),
-        tag: "new",
+        tag: "new" "all",
         imageUrl: "assets/images/lanyard.jpeg",
         description: "A durable lanyard for your ID or keys.",
       ),

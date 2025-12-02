@@ -7,6 +7,7 @@ import 'pages/cart_page.dart';
 import 'pages/auth_page.dart';
 import 'pages/personalisation_page.dart';
 import 'pages/collection_page.dart';
+import 'widgets/footer.dart';
 
 void main() {
   runApp(const UnionShopApp());
@@ -240,6 +241,7 @@ class HomePage extends StatelessWidget {
               ),
               child: const Text('ABOUT US'),
             ),
+             const Footer(),
           ],
         ),
       ),

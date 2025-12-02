@@ -3,6 +3,7 @@ import 'package:union_shop/widgets/nav_bar.dart';
 import 'package:union_shop/models/product.dart';
 import 'package:union_shop/widgets/product_card.dart'; 
 import 'package:union_shop/services/product_service.dart';
+import 'package:union_shop/widgets/footer.dart';
 
 class CollectionPage extends StatefulWidget {
   final String collectionName;
@@ -131,6 +132,7 @@ class _CollectionPageState extends State<CollectionPage> {
                 ],
               ),
               const SizedBox(height: 24),
+            const Footer(),
             ],
           ),
         ),

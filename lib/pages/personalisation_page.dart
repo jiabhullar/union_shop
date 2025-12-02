@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:union_shop/widgets/nav_bar.dart';
+import 'package:union_shop/widgets/footer.dart';
+
 
 class PersonalisationPage extends StatefulWidget {
   const PersonalisationPage({super.key});
@@ -65,6 +67,7 @@ class _PersonalisationPageState extends State<PersonalisationPage> {
               },
               child: const Text("Submit Personalisation"),
             ),
+            const Footer(),
           ],
         ),
       ),
