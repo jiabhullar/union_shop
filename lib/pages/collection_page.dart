@@ -30,7 +30,7 @@ class _CollectionPageState extends State<CollectionPage> {
 
   @override
   Widget build(BuildContext context) {
-      final filteredProducts = products.where((product) {
+      List<Product> filteredProducts = products.where((product) {
         if (selectedFilter == "all") return true;
         return product.tag == selectedFilter;
       }).toList();
@@ -56,9 +56,9 @@ class _CollectionPageState extends State<CollectionPage> {
           padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
-              const Text(
-                'Our Collections',
-                style: TextStyle(
+              Text(
+                widget.collectionName,
+                style: const TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),
@@ -96,57 +96,41 @@ class _CollectionPageState extends State<CollectionPage> {
                   ),
                 ],
               ),
-          const SizedBox(height: 20),
-          GridView.count(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            crossAxisCount: 2,
-            children: [
-              ProductCard(
-                product: Product(
-                  title: 'Placeholder Product 1',
-                  price: '10.00',
-                  imageUrl: 'https://shop.upsu.net/cdn/shop/files/product1.jpg',
-                  onSale: false,
-                  tag: 'new',
-                  description: 'Sample description',
-                ),
+              const SizedBox(height: 16),
+              GridView.count(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                crossAxisCount: 2,
+                crossAxisSpacing: 16,
+                mainAxisSpacing: 16,
+                children:
+                    pageItems.map((product) => ProductCard(product: product)).toList(),
               ),
-              ProductCard(
-                product: Product(
-                  title: 'Placeholder Product 2',
-                  price: '15.00',
-                  imageUrl: 'https://shop.upsu.net/cdn/shop/files/product2.jpg',
-                  onSale: false,
-                  tag: 'new',
-                  description: 'Sample description',
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 20),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton(
-                onPressed: currentPage > 0
-                    ? () {
-                        setState(() => currentPage--);
-                      }
-                    : null,
-                child: const Text("Previous"),
-              ),
-              const SizedBox(width: 20),
-              ElevatedButton(
-                onPressed: (currentPage + 1) * itemsPerPage < filteredProducts.length
-                    ? () {
-                        setState(() => currentPage++);
-                      }
-                    : null,
-                child: const Text("Next"),
+              const SizedBox(height: 16),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(
+                    onPressed: currentPage > 0
+                        ? () {
+                            setState(() => currentPage--);
+                          }
+                        : null,
+                    child: const Text("Previous"),
+                  ),
+                  const SizedBox(width: 16),
+                  ElevatedButton(
+                    onPressed:
+                        (currentPage + 1) * itemsPerPage < filteredProducts.length
+                            ? () {
+                                setState(() => currentPage++);
+                              }
+                            : null,
+                    child: const Text("Next"),
                   ),
                 ],
               ),
+              const SizedBox(height: 24),
             ],
           ),
         ),
