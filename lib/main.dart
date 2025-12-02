@@ -48,7 +48,7 @@ class HomePage extends StatelessWidget {
       title: 'Sample Product',
       price: '15.00',
       imageUrl:
-          'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
+          'assets/images/collection.jpeg',
       onSale: false,
       tag: 'new',
       description: 'This is a sample product description.',
@@ -190,8 +190,8 @@ class HomePage extends StatelessWidget {
               child: Stack(
                 children: [
                   Positioned.fill(
-                    child: Image.network(
-                      'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
+                    child: Image.asset(
+                      'assets/images/homepagehero.jpeg',
                       fit: BoxFit.cover,
                     ),
                   ),
