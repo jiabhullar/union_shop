@@ -20,8 +20,8 @@ class _CartPageState extends State<CartPage> {
     return Scaffold(
       appBar: const NavBar(),
       body: items.isEmpty
-          ? const Center(child: Text("Your cart is empty")),
-          : Column(
+          ? const Center(child: Text("Your cart is empty")):
+           Column(
             children: [
               Expanded(
                 child: ListView.builder(
@@ -29,10 +29,10 @@ class _CartPageState extends State<CartPage> {
                   itemBuilder: (context, index) {
                     final CartItem item = items[index];
                     final price = double.tryParse(item.product.price.replaceAll('£', '')) ?? 0;
-                      return ListTile(
-                        leading: Image.network(item.product.imageUrl, width: 50, height: 50),
-                        title: Text(item.product.title),
-                        subtitle: Text('Size: ${item.size}'),
+                    return ListTile(
+                      leading: Image.network(item.product.imageUrl, width: 50, height: 50),
+                      title: Text(item.product.title),
+                      subtitle: Text('Size: ${item.size} — £${price.toStringAsFixed(2)}'),
                         trailing: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
