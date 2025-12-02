@@ -33,5 +33,7 @@ double getTotal() {
   }
   return total;
 }
-
+void clearCart() {
+  _items.clear();
+}
 }
