@@ -3,8 +3,8 @@ import 'package:union_shop/models/cart_item.dart';
 
 class CartService { 
   CartService._privateConstructor();
-static final CartService _instance = CartService._privateConstructor();
-static CartService get instance => _instance;
+  static final CartService _instance = CartService._privateConstructor();
+  static CartService get instance => _instance;
 
 final List<CartItem> _items = [];
 
@@ -21,6 +21,9 @@ void addToCart(Product product, {int quantity = 1, String size = 'M'}) {
     // Not found, add new
     _items.add(CartItem(product: product, quantity: quantity, size: size));
   }
+}
+void removeFromCart(CartItem item) {
+  _items.remove(item);
 }
 
 }
