@@ -9,3 +9,5 @@ class CartPage extends StatefulWidget {
   @override
   State<CartPage> createState() => _CartPageState();
 }
+
+void refresh() => setState(() {});
