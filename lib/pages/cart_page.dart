@@ -10,7 +10,17 @@ class CartPage extends StatefulWidget {
   State<CartPage> createState() => _CartPageState();
 }
 
+class _CartPageState extends State<CartPage> {
   void refresh() => setState(() {});
-
-  final items = CartService.instance.items;
-  final total = CartService.instance.getTotal();
+ 
+ @override
+  Widget build(BuildContext context) {
+    final items = CartService.instance.items;
+    final total = CartService.instance.getTotal();
+    return Scaffold(
+      appBar: const NavBar(),
+      body: items.isEmpty
+          ? const Center(child: Text("Your cart is empty")),
+          
+  }
+  
