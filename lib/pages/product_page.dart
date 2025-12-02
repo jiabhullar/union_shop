@@ -249,6 +249,15 @@ class _ProductPageState extends State<ProductPage> {
                     }, 
                     child: const Text("Add to Cart"),
                   ),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => const PersonalisationPage()),
+                      );
+                    },
+                    child: const Text("Personalise"),
+                  ),
                 ],
             ),
             ),
