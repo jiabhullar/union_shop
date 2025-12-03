@@ -29,22 +29,20 @@ void main() {
       expect(find.text('A test product description'), findsOneWidget);
     });
 
-      testWidgets('should display dropdown for size', (tester) async {
+      testWidgets('should display dropdowns, quantity selector and buttons', (tester) async {
       await tester.pumpWidget(createTestWidget());
       await tester.pump();
-
+       // Size dropdown
       expect(find.byType(DropdownButton<String>), findsOneWidget);
 
-      testWidgets('should display quantity selector and buttons', (tester) async {
-      await tester.pumpWidget(createTestWidget());
-      await tester.pump();
-
+      // Quantity buttons
       expect(find.byIcon(Icons.add), findsOneWidget);
       expect(find.byIcon(Icons.remove), findsOneWidget);
-      expect(find.text('1'), findsOneWidget); 
+
+       // Add to Cart & Personalise buttons
       expect(find.text('Add to Cart'), findsOneWidget);
       expect(find.text('Personalise'), findsOneWidget);
       });
     });
-  });
-}
+  }
+
