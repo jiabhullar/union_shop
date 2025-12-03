@@ -29,6 +29,13 @@ void main() {
       expect(find.text('A test product description'), findsOneWidget);
     });
 
+      testWidgets('should display dropdown for size', (tester) async {
+      await tester.pumpWidget(createTestWidget());
+      await tester.pump();
 
+      expect(find.byType(DropdownButton<String>), findsOneWidget);
+
+      
     });
+  });
 }
