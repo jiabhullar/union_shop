@@ -47,7 +47,7 @@ void main() {
       // Check that footer is present
       expect(find.text('© 2025 Union Shop. All rights reserved.'), findsOneWidget);
       expect(
-        find.text('Students should customise this footer section'),
+        find.text("Home | About | Contact | Privacy Policy"),
         findsOneWidget,
       );
     });
