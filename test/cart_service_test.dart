@@ -15,6 +15,11 @@ void main() {
       CartService.instance.clearCart();
       expect(CartService.instance.items.length, 0);
     });
-
-  );
-  });,
+    test('addToCart adds a product', () {
+      CartService.instance.clearCart();
+      CartService.instance.addToCart(product, quantity: 2, size: 'M');
+      expect(CartService.instance.items.length, 1);
+      expect(CartService.instance.items[0].quantity, 2);
+    });
+  });
+}
