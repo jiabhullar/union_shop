@@ -74,44 +74,38 @@ class SaleProductTile extends StatelessWidget {
   });
 
   @override
-
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const NavBar(),
-      body: Column(
-        children: [
-          const SizedBox(height: 16),
-          const Text(
-            "Sale",
-            style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 16),
-
-          Expanded(
-            child: ListView(
-              padding: const EdgeInsets.all(16),
-              children: [
-                ListTile(
-                  leading: Image.asset("assets/images/sale_item.jpg"),
-                  title: const Text("Hoodie"),
-                  subtitle: const Text("Was £30.00"),
-                  trailing: const Text(
-                    "£20.00",
-                    style: TextStyle(
-                      color: Colors.red,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                    ),
+    return Column(
+      children: [
+        const SizedBox(height: 16),
+        const Text(
+          "Sale",
+          style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+        ),
+        const SizedBox(height: 16),
+    
+        Expanded(
+          child: ListView(
+            padding: const EdgeInsets.all(16),
+            children: [
+              ListTile(
+                leading: Image.asset("assets/images/sale_item.jpg"),
+                title: const Text("Hoodie"),
+                subtitle: const Text("Was £30.00"),
+                trailing: const Text(
+                  "£20.00",
+                  style: TextStyle(
+                    color: Colors.red,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-
-          const Footer(),
-        ],
-      ),
+        ),
+        const Footer(),
+      ],
     );
   }
 }
