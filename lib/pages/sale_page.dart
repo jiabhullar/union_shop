@@ -19,36 +19,34 @@ class SaleProductTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 3,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        const SizedBox(height: 16),
-        const Text(
-          "Sale",
-          style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Image.network(
+              imageUrl,
+              height: 150,
+              width: double.infinity,
+              fit: BoxFit.cover,
+            ),
+            const SizedBox(height: 8),
+            Text(
+              title,
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 4),
+            Text(
+              originalPrice,
+              style: const TextStyle(decoration: TextDecoration.lineThrough),
+            ),
+            const SizedBox(height: 2),
+            Text(
+              salePrice,
+              style: const TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
+            ),
+          ],
         ),
-        const SizedBox(height: 16),
-    
-        Expanded(
-          child: ListView(
-            padding: const EdgeInsets.all(16),
-            children: [
-              ListTile(
-                leading: Image.asset("assets/images/sale_item.jpg"),
-                title: const Text("Hoodie"),
-                subtitle: const Text("Was £30.00"),
-                trailing: const Text(
-                  "£20.00",
-                  style: TextStyle(
-                    color: Colors.red,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        const Footer(),
       ),
     );
   }
