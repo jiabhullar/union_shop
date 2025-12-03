@@ -30,16 +30,22 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
               child: const Text('Home', style: TextStyle(color: Colors.white)),
             ),
             TextButton(
+              onPressed: () => Navigator.pushNamed(context, '/about'),
+              child: const Text('About', style: TextStyle(color: Colors.white)),
+            ),
+            TextButton(
               onPressed: () => Navigator.pushNamed(context, '/collections'),
               child: const Text('Collections', style: TextStyle(color: Colors.white)),
             ),
             TextButton(
-              onPressed: () => Navigator.pushNamed(context, '/collections', arguments: "sale"),
-              child: const Text('Sale', style: TextStyle(color: Colors.white)),
+              onPressed: () {
+                Navigator.pushNamed(context, '/personalise'); // Print Shack
+              },
+              child: const Text('Print Shack'),
             ),
             TextButton(
-              onPressed: () => Navigator.pushNamed(context, '/about'),
-              child: const Text('About', style: TextStyle(color: Colors.white)),
+              onPressed: () => Navigator.pushNamed(context, '/collections', arguments: "sale"),
+              child: const Text('Sale', style: TextStyle(color: Colors.white)),
             ),
             TextButton(
               onPressed: () => Navigator.pushNamed(context, '/cart'),
@@ -58,9 +64,10 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
         builder: (_) => Column(
           children: [
             ListTile(title: const Text("Home"), onTap: () => Navigator.pushNamed(context, '/')),
-            ListTile(title: const Text("Collections"), onTap: () => Navigator.pushNamed(context, '/collections')),
-            ListTile(title: const Text("Sale"), onTap: () => Navigator.pushNamed(context, '/sale')),
             ListTile(title: const Text("About"), onTap: () => Navigator.pushNamed(context, '/about')),
+            ListTile(title: const Text("Collections"), onTap: () => Navigator.pushNamed(context, '/collections')),
+            ListTile(title: const Text("Print Shack"), onTap: () => Navigator.pushNamed(context, '/personalise')),
+            ListTile(title: const Text("Sale"), onTap: () => Navigator.pushNamed(context, '/sale')),
             ListTile(title: const Text("Cart"), onTap: () => Navigator.pushNamed(context, '/cart')),
             ListTile(title: const Text("Account"), onTap: () => Navigator.pushNamed(context, '/auth')),
           ],
