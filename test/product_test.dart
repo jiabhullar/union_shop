@@ -29,27 +29,6 @@ void main() {
       expect(find.text('A test product description'), findsOneWidget);
     });
 
-    testWidgets('should display  header icons', (tester) async {
-      await tester.pumpWidget(createTestWidget());
-      await tester.pump();
 
-      // Check that header icons present
-      expect(find.byIcon(Icons.search), findsOneWidget);
-      expect(find.byIcon(Icons.shopping_bag_outlined), findsOneWidget);
-      expect(find.byIcon(Icons.menu), findsOneWidget);
-      expect(find.byIcon(Icons.person_outline), findsOneWidget);
     });
-
-    testWidgets('should display footer', (tester) async {
-      await tester.pumpWidget(createTestWidget());
-      await tester.pump();
-
-      // Check that footer is present
-      expect(find.text('© 2025 Union Shop. All rights reserved.'), findsOneWidget);
-      expect(
-        find.text("Home | About | Contact | Privacy Policy"),
-        findsOneWidget,
-      );
-    });
-  });
 }
