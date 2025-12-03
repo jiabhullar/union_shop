@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:union_shop/models/product.dart';
+import 'package:union_shop/services/cart_service.dart';
 import 'package:union_shop/widgets/nav_bar.dart';
 import 'package:union_shop/widgets/footer.dart';
 
@@ -68,12 +70,17 @@ class _PersonalisationPageState extends State<PersonalisationPage> {
     const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(
-                      "Order placed: $selectedProductType with '$textInput' in $colour",
-                    ),
+                CartService.instance.addToCart(
+                  Product(
+                    title: "Custom Print",
+                    price: "£${selectedProductType == "T-Shirt" ? 20 : selectedProductType == "Hoodie" ? 35 : 10}",
+                    imageUrl: "assets/images/${selectedProductType.toLowerCase()}.png",
+                    tag: "custom",
+                    description: "Text: $textInput${selectedProductType != 'Mug' ? ', Colour: $colour' : ''}",
                   ),
+                );
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text("Added to cart")),
                 );
               },
               child: const Text("Submit Personalisation"),
