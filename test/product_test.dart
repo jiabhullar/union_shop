@@ -12,7 +12,6 @@ void main() {
         title: 'Test Product',
         price: '15.00',
         imageUrl: 'assets/images/test.jpg',
-        onSale: false,
         tag: 'new',
         description: 'A test product description',
       )));
@@ -25,13 +24,9 @@ void main() {
       await tester.pump();
 
       // Check that basic UI elements are present
-      expect(
-        find.text('PLACEHOLDER HEADER TEXT - STUDENTS TO UPDATE!'),
-        findsOneWidget,
-      );
-      expect(find.text('Placeholder Product Name'), findsOneWidget);
+      expect(find.text('Test Product'), findsOneWidget);
       expect(find.text('£15.00'), findsOneWidget);
-      expect(find.text('Description'), findsOneWidget);
+      expect(find.text('A test product description'), findsOneWidget);
     });
 
     testWidgets('should display student instruction text', (tester) async {
