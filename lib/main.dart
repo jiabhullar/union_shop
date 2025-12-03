@@ -186,10 +186,10 @@ class HomePage extends StatelessWidget {
                         const Text(
                           'Explore the Union Shop Collection',
                           style: TextStyle(
-                            fontSize: 32,
+                            fontSize: 36,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                            height: 1.2,
+                            color: Colors.black,
+                            height: 0.5,
                           ),
                         ),
                         const SizedBox(height: 16),
