@@ -10,10 +10,9 @@ void main() {
 
       // Check that basic UI elements are present
       expect(find.text('Welcome to The Union Shop!'), findsOneWidget);
-      expect(find.text('Placeholder Hero Title'), findsOneWidget);
-      expect(find.text('PLACEHOLDER PRODUCTS SECTION'), findsOneWidget);
+      expect(find.text('Explore the Union Shop Collection'), findsOneWidget);
       expect(find.text('BROWSE PRODUCTS'), findsOneWidget);
-      expect(find.text('VIEW ALL PRODUCTS'), findsOneWidget);
+      expect(find.text('ABOUT US'), findsOneWidget);
     });
 
     testWidgets('should display product cards', (tester) async {
