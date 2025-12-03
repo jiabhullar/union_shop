@@ -11,6 +11,7 @@ final List<Product> sampleProducts = [
   Product(
       title: "Union Mug",
       price: "£9.99",
+      originalPrice: "£12.99",
       imageUrl: "assets/images/mug.jpeg",
       tag: "sale" ,
       description: "A sturdy mug for your favorite beverages.",
@@ -18,6 +19,7 @@ final List<Product> sampleProducts = [
   Product(
       title: "Notebook",
       price: "£4.99",
+      originalPrice: "£6.99",
       imageUrl: "assets/images/notebook.jpeg",
       tag: "sale",
       description: "A handy notebook for jotting down ideas.",

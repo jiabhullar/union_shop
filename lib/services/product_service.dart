@@ -13,6 +13,7 @@ class ProductService {
       Product(
         title: "Union Mug",
         price: "£9.99",
+        originalPrice: "£12.99",
         tag: "sale",
         imageUrl: "assets/images/mug.jpeg",
         description: "A stylish mug to enjoy your favorite beverages.",
@@ -20,6 +21,7 @@ class ProductService {
       Product(
         title: "Notebook",
         price: "£4.99",
+        originalPrice: "£6.99",
         tag: "sale",
         imageUrl: "assets/images/notebook.jpeg",
         description: "A handy notebook for jotting down your thoughts.",

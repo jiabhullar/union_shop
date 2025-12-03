@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'pages/about_us.dart';
-import 'pages/product_page.dart';
 import 'widgets/nav_bar.dart';
-import 'models/product.dart';
 import 'pages/cart_page.dart';
 import 'pages/auth_page.dart';
 import 'pages/personalisation_page.dart';
@@ -44,24 +42,6 @@ class HomePage extends StatelessWidget {
     Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
   }
 
-  void navigateToProduct(BuildContext context) {
-    final product = Product(
-      title: 'Sample Product',
-      price: '15.00',
-      imageUrl:
-          'assets/images/collection.jpeg',
-      onSale: false,
-      tag: 'new',
-      description: 'This is a sample product description.',
-    );
-
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => ProductPage(product: product),
-      ),
-    );
-  }
   void placeholderCallbackForButtons() {
   }
 
@@ -214,7 +194,9 @@ class HomePage extends StatelessWidget {
                         ),
                         const SizedBox(height: 16),
                         ElevatedButton(
-                          onPressed: () => navigateToProduct(context),
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/collections');
+                        },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(0xFF4d2963),
                             foregroundColor: Colors.white,
