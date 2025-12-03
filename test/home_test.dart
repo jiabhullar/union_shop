@@ -40,6 +40,14 @@ void main() {
       expect(find.byIcon(Icons.search), findsOneWidget);
       expect(find.byIcon(Icons.shopping_bag_outlined), findsOneWidget);
       expect(find.byIcon(Icons.menu), findsOneWidget);
+      
+      // Check that homepage hero image is present
+      testWidgets('should display homepage hero image', (tester) async {
+      await tester.pumpWidget(const UnionShopApp());
+      await tester.pumpAndSettle();
+
+      expect(find.byType(Image), findsWidgets);
+      });
     });
   });
 }
