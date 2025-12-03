@@ -11,5 +11,10 @@ void main() {
       tag: 'new',
       description: 'A test product',
     );
+    test('cart is initially empty', () {
+      CartService.instance.clearCart();
+      expect(CartService.instance.items.length, 0);
+    });
+
   );
   });,
