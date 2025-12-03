@@ -48,10 +48,9 @@ class _CollectionPageState extends State<CollectionPage> {
     default: // popular
       break;
   }
-
       final start = currentPage * itemsPerPage;
       final end = (start + itemsPerPage).clamp(0, filteredProducts.length);
-      final List<Product> pageItems = filteredProducts.isEmpty ? [] : filteredProducts.sublist(start, end);
+      final pageItems = filteredProducts.sublist(start, end);
             
     return Scaffold(
       appBar: const NavBar(),
