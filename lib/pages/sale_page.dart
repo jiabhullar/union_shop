@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:union_shop/services/product_service.dart';
 import 'package:union_shop/widgets/footer.dart';
 import 'package:union_shop/models/sale_product_tile.dart';
 
@@ -7,21 +8,10 @@ class SalePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // List of sale products
-    final saleProducts = [
-      {
-        "title": "Campus Hoodie",
-        "originalPrice": "£39.99",
-        "salePrice": "£29.99",
-        "imageUrl": "assets/images/hoodie.jpg",
-      },
-      {
-        "title": "Union Mug",
-        "originalPrice": "£12.99",
-        "salePrice": "£9.99",
-        "imageUrl": "assets/images/mug.jpg",
-      },
-    ];
+    final saleProducts = ProductService.getProductsForCollection("all")
+    .where((p) => p.onSale)
+    .toList();
+
     return Scaffold(
       appBar: AppBar(title: const Text('Sale')), // or your NavBar
       body: SingleChildScrollView(
@@ -55,15 +45,14 @@ class SalePage extends StatelessWidget {
                 mainAxisSpacing: 16,
                 children: saleProducts.map((product) {
                   return SaleProductTile(
-                    title: product['title']!,
-                    originalPrice: product['originalPrice']!,
-                    salePrice: product['salePrice']!,
-                    imageUrl: product['imageUrl']!,
+                    title: product.title,
+                    originalPrice: product.originalPrice!,
+                    salePrice: product.price,
+                    imageUrl: product.imageUrl,
                   );
                 }).toList(),
               ),
             ),
-
             // Footer
             const Footer(),
           ],

@@ -16,4 +16,6 @@ class Product {
   });
 
   bool get onSale => originalPrice != null;
+
+  void operator [](String other) {}
 }
