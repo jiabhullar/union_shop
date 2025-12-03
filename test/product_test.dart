@@ -34,14 +34,12 @@ void main() {
       await tester.pump();
 
       // Check that header icons present
-      expect(
-        find.text(
-          'Students should add size options, colour options, quantity selector, add to cart button, and buy now button here.',
-        ),
-        findsOneWidget,
-      );
+      expect(find.byIcon(Icons.search), findsOneWidget);
+      expect(find.byIcon(Icons.shopping_bag_outlined), findsOneWidget);
+      expect(find.byIcon(Icons.menu), findsOneWidget);
+      expect(find.byIcon(Icons.person_outline), findsOneWidget);
     });
-
+    
     testWidgets('should display header icons', (tester) async {
       await tester.pumpWidget(createTestWidget());
       await tester.pump();
