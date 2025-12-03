@@ -13,3 +13,13 @@ class ProductPage extends StatefulWidget {
   @override
   State<ProductPage> createState() => _ProductPageState();
 }
+class _ProductPageState extends State<ProductPage> {
+  int quantity = 1;
+  String selectedSize = "M";
+
+  @override
+  Widget build(BuildContext context) {
+    final isDesktop = MediaQuery.of(context).size.width > 600;
+
+  }
+}
