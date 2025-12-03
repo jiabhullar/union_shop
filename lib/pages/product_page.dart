@@ -191,7 +191,7 @@ class _ProductPageState extends State<ProductPage> {
 
                   // Product price
                   Text(
-                    "£${widget.product.price}",
+                    widget.product.price,
                     style: const TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
