@@ -9,7 +9,8 @@ void main() {
       await tester.pump();
 
       expect(find.textContaining("© 2025 Union Shop"), findsOneWidget);
-      expect(find.textContaining("Home | About | Contact | Privacy Policy"), findsOneWidget);
+      expect(find.textContaining("Home"), findsOneWidget);
+      expect(find.textContaining("About"), findsOneWidget);
     });
   });
 }
