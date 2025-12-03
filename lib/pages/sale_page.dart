@@ -34,7 +34,6 @@ class SalePage extends StatelessWidget {
             ),
             const SizedBox(height: 16),
 
-            // Sale products grid
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: GridView.count(
