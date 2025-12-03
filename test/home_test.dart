@@ -9,10 +9,7 @@ void main() {
       await tester.pump();
 
       // Check that basic UI elements are present
-      expect(
-        find.text('PLACEHOLDER HEADER TEXT - STUDENTS TO UPDATE!'),
-        findsOneWidget,
-      );
+      expect(find.text('Welcome to The Union Shop!'), findsOneWidget);
       expect(find.text('Placeholder Hero Title'), findsOneWidget);
       expect(find.text('PLACEHOLDER PRODUCTS SECTION'), findsOneWidget);
       expect(find.text('BROWSE PRODUCTS'), findsOneWidget);
