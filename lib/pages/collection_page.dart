@@ -31,20 +31,23 @@ class _CollectionPageState extends State<CollectionPage> {
 
   @override
   Widget build(BuildContext context) {
-      List<Product> filteredProducts = products.where((product) {
-        if (selectedFilter == "all") return true;
-        return product.tag == selectedFilter;
-      }).toList();
+  List<Product> filteredProducts = products.where((product) {
+    if (selectedFilter == "all") return true;
+    return product.tag == selectedFilter;
+  }).toList();
 
-      if (selectedSort == "price_low") {
-        filteredProducts.sort((a, b) =>
-          double.parse(a.price.substring(1))
-              .compareTo(double.parse(b.price.substring(1))));
-      } else if (selectedSort == "price_high") {
-        filteredProducts.sort((a, b) =>
-          double.parse(b.price.substring(1))
-              .compareTo(double.parse(a.price.substring(1))));
-      }
+  switch (selectedSort) {
+    case "price_low":
+      filteredProducts.sort((a, b) =>
+        double.parse(a.price.replaceAll('£', '')).compareTo(double.parse(b.price.replaceAll('£', ''))));
+      break;
+    case "price_high":
+      filteredProducts.sort((a, b) =>
+        double.parse(b.price.replaceAll('£', '')).compareTo(double.parse(a.price.replaceAll('£', ''))));
+      break;
+    default: // popular
+      break;
+  }
 
       final start = currentPage * itemsPerPage;
       final end = (start + itemsPerPage).clamp(0, filteredProducts.length);

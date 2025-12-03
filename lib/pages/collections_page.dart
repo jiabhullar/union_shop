@@ -1,18 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:union_shop/pages/collection_page.dart';
 import 'package:union_shop/widgets/nav_bar.dart';
 import 'package:union_shop/widgets/footer.dart';
+import 'package:union_shop/services/collection_service.dart';
 
 class CollectionsPage extends StatelessWidget {
-  const CollectionsPage({super.key});
+  CollectionsPage({super.key});
 
-    final List<Map<String, String>> collections = const [
-    {"name": "Clothing", "image": "assets/images/collection_clothing.jpg"},
-    {"name": "Accessories", "image": "assets/images/collection_accessories.jpg"},
-    {"name": "Stationery", "image": "assets/images/collection_stationery.jpg"},
-    {"name": "Gifts", "image": "assets/images/collection_gifts.jpg"},
-    {"name": "Union Merch", "image": "assets/images/collection_union.jpg"},
-    {"name": "Sale", "image": "assets/images/collection_sale.jpg"},
-  ];
+  final collections = CollectionService.getCollections();
 
   @override
     Widget build(BuildContext context) {
@@ -26,7 +21,7 @@ class CollectionsPage extends StatelessWidget {
             style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 16),
-                    Expanded(
+          Expanded(
             child: GridView.builder(
               padding: const EdgeInsets.all(16),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -40,31 +35,29 @@ class CollectionsPage extends StatelessWidget {
                 final c = collections[index];
                 return GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(
+                    Navigator.push(
                       context,
-                      "/collections/${c['name']!.toLowerCase()}",
+                      MaterialPageRoute(
+                        builder: (_) => CollectionPage(collectionName: c.name),
+                      ),
                     );
                   },
                   child: Column(
                     children: [
                       Expanded(
-                        child: Image.asset(
-                          c["image"]!,
-                          fit: BoxFit.cover,
-                        ),
+                        child: Image.asset(c.image, fit: BoxFit.cover),
                       ),
                       const SizedBox(height: 8),
-                      Text(c["name"]!, style: const TextStyle(fontSize: 18)),
+                      Text(c.name, style: const TextStyle(fontSize: 18)),
                     ],
                   ),
                 );
               },
             ),
           ),
-
-          const Footer(),
+          const Footer()
         ],
       ),
     );
-  }
+   }
 }
