@@ -6,13 +6,15 @@ import 'package:union_shop/models/product.dart';
 void main() {
   group('Product Page Tests', () {
     Widget createTestWidget() {
-      return MaterialApp(home: ProductPage(product: Product(
-        title: 'Sample Product',
+      return MaterialApp(
+        home: ProductPage(
+          product: Product(
+        title: 'Test Product',
         price: '15.00',
-        imageUrl: 'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
+        imageUrl: 'assets/images/test.jpg',
         onSale: false,
         tag: 'new',
-        description: 'This is a sample product',
+        description: 'A test product description',
       )));
     }
 

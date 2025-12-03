@@ -3,7 +3,7 @@ import 'package:union_shop/models/product.dart';
 import 'package:union_shop/services/cart_service.dart';
 
 void main() {
-  group('CartService', () {
+  group('Cart Service Tests', () {
     final product = Product(
       title: 'Test Product',
       price: '10.00',
