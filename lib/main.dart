@@ -6,6 +6,7 @@ import 'pages/auth_page.dart';
 import 'pages/personalisation_page.dart';
 import 'pages/collection_page.dart';
 import 'widgets/footer.dart';
+import 'pages/personalisation_about_page.dart';
 
 void main() {
   runApp(const UnionShopApp());
@@ -29,6 +30,7 @@ class UnionShopApp extends StatelessWidget {
           '/cart': (context) => const CartPage(),
           '/auth': (context) => const AuthPage(),
           '/personalise': (context) => const PersonalisationPage(),
+          '/personalise_about': (context) => const PersonalisationAboutPage(),
           '/collections': (context) => const CollectionPage(collectionName: "All Products"),
         },
     );
