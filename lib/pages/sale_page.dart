@@ -1,63 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:union_shop/widgets/nav_bar.dart';
 import 'package:union_shop/widgets/footer.dart';
-
-class SalePage extends StatelessWidget {
-  const SalePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const NavBar(),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-          Container(
-            width: double.infinity,
-            padding: const EdgeInsets.all(16.0),
-            color: Colors.redAccent,
-            child: const Text(
-              'SALE - UP TO 50% OFF!',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                ),
-              )
-            ),
-
-            const SizedBox(height: 16),
-
-            GridView.count(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              crossAxisCount: MediaQuery.of(context).size.width > 600 ? 2 : 1,
-              crossAxisSpacing: 16,
-              mainAxisSpacing: 16,
-              children: const [
-                SaleProductTile(
-                    title: "Campus Hoodie",
-                    originalPrice: "£39.99",
-                    salePrice: "£29.99",
-                    imageUrl: "https://via.placeholder.com/300?text=Hoodie",
-                  ),
-                  SaleProductTile(
-                    title: "Union Mug",
-                    originalPrice: "£12.99",
-                    salePrice: "£9.99",
-                    imageUrl: "https://via.placeholder.com/300?text=Mug",
-                  ),
-              ],
-            ),
-            const Footer(),
-          ],
-        ),
-      ),
-    );
-  }
-}
 
 class SaleProductTile extends StatelessWidget {
   final String title;
@@ -75,8 +17,10 @@ class SaleProductTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
+    return Card(
+      elevation: 3,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         const SizedBox(height: 16),
         const Text(
           "Sale",
@@ -105,7 +49,7 @@ class SaleProductTile extends StatelessWidget {
           ),
         ),
         const Footer(),
-      ],
+      ),
     );
   }
 }

@@ -37,11 +37,21 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
               onPressed: () => Navigator.pushNamed(context, '/collections'),
               child: const Text('Collections', style: TextStyle(color: Colors.white)),
             ),
-            TextButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/personalise'); // Print Shack
+            PopupMenuButton<String>(
+              child: const Text('Print Shack', style: TextStyle(color: Colors.white)),
+              onSelected: (value) {
+                Navigator.pushNamed(context, value);
               },
-              child: const Text('Print Shack'),
+              itemBuilder: (_) => [
+                const PopupMenuItem(
+                  value: '/personalise',
+                  child: Text('Print Shack'),
+                ),
+                const PopupMenuItem(
+                  value: '/personalise_about',
+                  child: Text('About Print Shack'),
+                ),
+              ],
             ),
             TextButton(
               onPressed: () => Navigator.pushNamed(context, '/collections', arguments: "sale"),
@@ -67,6 +77,7 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
             ListTile(title: const Text("About"), onTap: () => Navigator.pushNamed(context, '/about')),
             ListTile(title: const Text("Collections"), onTap: () => Navigator.pushNamed(context, '/collections')),
             ListTile(title: const Text("Print Shack"), onTap: () => Navigator.pushNamed(context, '/personalise')),
+            ListTile(title: const Text("About Print Shack"), onTap: () => Navigator.pushNamed(context, '/personalise_about')),
             ListTile(title: const Text("Sale"), onTap: () => Navigator.pushNamed(context, '/sale')),
             ListTile(title: const Text("Cart"), onTap: () => Navigator.pushNamed(context, '/cart')),
             ListTile(title: const Text("Account"), onTap: () => Navigator.pushNamed(context, '/auth')),
