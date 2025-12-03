@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:union_shop/pages/collection_page.dart';
-
 
 class NavBar extends StatelessWidget implements PreferredSizeWidget {
   const NavBar({super.key});
@@ -56,16 +54,9 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
               ],
             ),
             TextButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => const CollectionPage(collectionName: 'Sale'),
-                  ),
-                );
-              },
-  child: const Text('Sale', style: TextStyle(color: Colors.white)),
-),
+              onPressed: () => Navigator.pushNamed(context, '/sale'),
+              child: const Text('Sale', style: TextStyle(color: Colors.white)),
+            ),
 
             TextButton(
               onPressed: () => Navigator.pushNamed(context, '/cart'),
@@ -88,7 +79,7 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
             ListTile(title: const Text("Collections"), onTap: () => Navigator.pushNamed(context, '/collections')),
             ListTile(title: const Text("Print Shack"), onTap: () => Navigator.pushNamed(context, '/personalise')),
             ListTile(title: const Text("About Print Shack"), onTap: () => Navigator.pushNamed(context, '/personalise_about')),
-            ListTile(title: const Text("Sale"), onTap: () => Navigator.pushNamed(context, '/sale')),
+            ListTile(title: const Text("Sale"),onTap: () {Navigator.pushNamed(context, '/sale');},),
             ListTile(title: const Text("Cart"), onTap: () => Navigator.pushNamed(context, '/cart')),
             ListTile(title: const Text("Account"), onTap: () => Navigator.pushNamed(context, '/auth')),
           ],
