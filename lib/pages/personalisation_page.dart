@@ -23,7 +23,7 @@ class _PersonalisationPageState extends State<PersonalisationPage> {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-                        DropdownButton<String>(
+            DropdownButton<String>(
               value: selectedProductType,
               items: ["T-Shirt", "Hoodie", "Mug"]
                   .map((p) => DropdownMenuItem(value: p, child: Text(p)))
@@ -51,10 +51,21 @@ class _PersonalisationPageState extends State<PersonalisationPage> {
               ),
 
             if (selectedProductType == "Mug")
-              const Text("Mugs have a default white colour."),
-
-            const Spacer(),
-
+    if (selectedProductType != "Mug")
+      DropdownButton<String>(
+        value: colour,
+        onChanged: (value) => setState(() => colour = value!),
+        items: ["Black", "White", "Red", "Blue"]
+            .map((c) => DropdownMenuItem(value: c, child: Text(c)))
+            .toList(),
+      ),
+    const SizedBox(height: 16),
+    Text(
+      "Summary: $selectedProductType with text '$textInput'"
+      "${selectedProductType != 'Mug' ? ' in $colour colour' : ''}",
+      style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+    ),
+    const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {
                 ScaffoldMessenger.of(context).showSnackBar(
@@ -67,7 +78,13 @@ class _PersonalisationPageState extends State<PersonalisationPage> {
               },
               child: const Text("Submit Personalisation"),
             ),
-            const Footer(),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/personalise_about');
+                },
+                child: const Text('Learn more about Print Shack'),
+            ),
+            const Footer()
           ],
         ),
       ),
