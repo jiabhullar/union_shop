@@ -19,7 +19,7 @@ class _CollectionPageState extends State<CollectionPage> {
   String selectedFilter = "all";
 
   int currentPage = 0;
-  final int itemsPerPage = 2; 
+  final int itemsPerPage = 4; 
 
   List<Product> products = [];
   
@@ -48,7 +48,7 @@ class _CollectionPageState extends State<CollectionPage> {
 
       final start = currentPage * itemsPerPage;
       final end = (start + itemsPerPage).clamp(0, filteredProducts.length);
-      final List<Product> pageItems = filteredProducts.sublist(start, end);
+      final List<Product> pageItems = filteredProducts.isEmpty ? [] : filteredProducts.sublist(start, end);
             
     return Scaffold(
       appBar: const NavBar(),
