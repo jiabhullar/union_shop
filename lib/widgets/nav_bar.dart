@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:union_shop/pages/collection_page.dart';
+
 
 class NavBar extends StatelessWidget implements PreferredSizeWidget {
   const NavBar({super.key});
@@ -54,9 +56,17 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
               ],
             ),
             TextButton(
-              onPressed: () => Navigator.pushNamed(context, '/collections', arguments: "sale"),
-              child: const Text('Sale', style: TextStyle(color: Colors.white)),
-            ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => const CollectionPage(collectionName: 'Sale'),
+                  ),
+                );
+              },
+  child: const Text('Sale', style: TextStyle(color: Colors.white)),
+),
+
             TextButton(
               onPressed: () => Navigator.pushNamed(context, '/cart'),
               child: const Text('Cart', style: TextStyle(color: Colors.white)),
