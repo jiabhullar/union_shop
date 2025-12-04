@@ -35,19 +35,25 @@ class _CartPageState extends State<CartPage> {
                       margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                       child: Padding(
                         padding: const EdgeInsets.all(12.0),
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.start
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            IconButton(
-                              icon: const Icon(Icons.remove),
-                              onPressed: () {
-                                if (item.quantity > 1) {
-                                  setState(() => item.quantity--);
-                                }
-                              },
+                            SizedBox(
+                              width: 70,
+                              height: 70,
+                              child: Image.asset(
+                                item.product.imageUrl,
+                                fit: BoxFit.cover,
+                                errorBuilder: (_, __, ___) => const Icon(Icons.image_not_supported, size: 40),
+                              ),
                             ),
+                          ],
+                      ),
+                    ),
+                  );
+                },
+              ),
+              const SizedBox(width: 12),
                             Text(item.quantity.toString()),
                             IconButton(
                               icon: const Icon(Icons.add),
