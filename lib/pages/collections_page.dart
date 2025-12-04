@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:union_shop/data/sample_products.dart';
 import 'package:union_shop/models/sale_product_tile.dart';
+import 'package:union_shop/pages/product_page.dart';
 import 'package:union_shop/widgets/nav_bar.dart';
 import 'package:union_shop/widgets/footer.dart';
 import 'package:union_shop/services/collection_service.dart';
@@ -42,10 +43,9 @@ class CollectionsPage extends StatelessWidget {
                     itemBuilder: (context, index) {
                       final product = sampleProducts[index];
                       return GestureDetector(
-                        onTap: () => Navigator.pushNamed(
+                        onTap: () => Navigator.push(
                           context,
-                          '/product',
-                          arguments: product, 
+                          MaterialPageRoute(builder: (_) => ProductPage(product: product)),
                         ),
                         child: SaleProductTile(
                           title: product.title,

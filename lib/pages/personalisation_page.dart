@@ -68,6 +68,7 @@ class _PersonalisationPageState extends State<PersonalisationPage> {
       style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
     ),
     const SizedBox(height: 16),
+    
             ElevatedButton(
               onPressed: () {
                 CartService.instance.addToCart(
@@ -83,7 +84,7 @@ class _PersonalisationPageState extends State<PersonalisationPage> {
                   const SnackBar(content: Text("Added to cart")),
                 );
               },
-              child: const Text("Submit Personalisation"),
+              child: const Text("Add to Cart"),
             ),
               TextButton(
                 onPressed: () {
