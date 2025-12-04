@@ -37,9 +37,7 @@ class AboutUsPage extends StatelessWidget {
               "\n\nOur mission is to provide high-quality merchandise that represents the student community.",
               style: TextStyle(fontSize: 18, height: 1.5),
             ),
-            
-            const SizedBox(height: 32),
-
+            const SizedBox(height: 130),
             const Footer(),
             ],
           ),
