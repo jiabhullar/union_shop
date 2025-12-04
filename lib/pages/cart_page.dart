@@ -50,54 +50,53 @@ class _CartPageState extends State<CartPage> {
                               ),
                             ),
                             const SizedBox(width: 12),
-
-                                                  Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(item.product.title,
-                                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-                            Text("Size: ${item.size}"),
-                            Text("£${price.toStringAsFixed(2)}"),
-                          ],
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(item.product.title,
+                                      style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                                  Text("Size: ${item.size}"),
+                                  Text("£${price.toStringAsFixed(2)}"),
+                                ],
+                              ),
+                            ),
+                              Column(
+                                children: [
+                                  IconButton(
+                                    icon: const Icon(Icons.add),
+                                    onPressed: () {
+                                      setState(() => item.quantity++);
+                                    },
+                                  ),
+                                  Text(item.quantity.toString()),
+                                  IconButton(
+                                    icon: const Icon(Icons.remove),
+                                    onPressed: () {
+                                      if (item.quantity > 1) {
+                                        setState(() => item.quantity--);
+                                      }
+                                    },
+                                  ),
+                                  IconButton(
+                                    icon: const Icon(Icons.delete,
+                                        color: Colors.red),
+                                    onPressed: () {
+                                      setState(() {
+                                        CartService.instance
+                                            .removeFromCart(item);
+                                      });
+                                    },
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                          ],
-                      ),
-                    ),
-                  );
-                },
-              ),
-              Column(
-                children: [
-                  IconButton(
-                    icon: const Icon(Icons.add),
-                    onPressed: () {
-                      setState(() => item.quantity++);
+                      );
                     },
                   ),
-                  Text(item.quantity.toString()),
-                  IconButton(
-                    icon: const Icon(Icons.remove),
-                    onPressed: () {
-                      if (item.quantity > 1) {
-                        setState(() => item.quantity--);
-                      }
-                    },
-                  ),
-                  IconButton(
-                    icon: const Icon(Icons.delete, color: Colors.red),
-                    onPressed: () {
-                      setState(() {
-                        CartService.instance.removeFromCart(item);
-                      });
-                    },
-                  ),
-                ],
-              ),
-            ],
-          ),
-        );
+                ),
                
                
                
