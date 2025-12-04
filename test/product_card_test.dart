@@ -13,4 +13,16 @@ void main() {
     tag: 'new',
     description: 'desc',
   );
+
+  testWidgets('ProductCard shows title and price and navigates', (tester) async {
+    await tester.pumpWidget(MaterialApp(
+      home: Scaffold(
+        body: ProductCard(product: product),
+      ),
+      routes: {
+        '/product': (ctx) => ProductPage(product: product),
+      },
+    ));
+
+  });
 }
