@@ -54,19 +54,17 @@ class _CartPageState extends State<CartPage> {
                 },
               ),
               const SizedBox(width: 12),
-                            Text(item.quantity.toString()),
-                            IconButton(
-                              icon: const Icon(Icons.add),
-                              onPressed: () {
-                                setState(() => item.quantity++);
-                              },
-                            ),
-                            IconButton(
-                              icon: const Icon(Icons.delete),
-                              onPressed: () {
-                                setState(() {
-                                  CartService.instance.removeFromCart(item);
-                                });
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(item.product.title,
+                                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                            Text("Size: ${item.size}"),
+                            Text("£${price.toStringAsFixed(2)}"),
+                          ],
+                        ),
+                      ),
                               },
                             ),
                           ],
