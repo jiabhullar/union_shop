@@ -28,6 +28,7 @@ class PersonalisationAboutPage extends StatelessWidget {
           ],
         ),
       ),
+      bottomNavigationBar: Footer(),
     );
   }
 }

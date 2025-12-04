@@ -43,6 +43,7 @@ class AboutUsPage extends StatelessWidget {
           ),
         ),
       ),
+      bottomNavigationBar: const Footer()
     );
   }
 }

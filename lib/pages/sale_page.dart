@@ -53,7 +53,6 @@ class SalePage extends StatelessWidget {
                 }).toList(),
               ),
             ),
-            const Footer(),
           ],
         ),
       ),

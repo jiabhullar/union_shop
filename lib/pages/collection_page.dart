@@ -133,12 +133,11 @@ class _CollectionPageState extends State<CollectionPage> {
                   ),
                 ],
               ),
-              const SizedBox(height: 24),
-            const Footer(),
             ],
           ),
         ),
       ),
+      bottomNavigationBar: const Footer(),
     );
   }
 }

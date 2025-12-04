@@ -91,10 +91,10 @@ class _PersonalisationPageState extends State<PersonalisationPage> {
                 },
                 child: const Text('Learn more about Print Shack'),
             ),
-            const Footer()
           ],
         ),
       ),
+      bottomNavigationBar: const Footer(),
     );
   }
 }
