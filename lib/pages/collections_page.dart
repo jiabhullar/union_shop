@@ -24,36 +24,45 @@ class CollectionsPage extends StatelessWidget {
           const SizedBox(height: 16),
           Scaffold(
             appBar: const NavBar(),
-            body: LayoutBuilder(
-              builder: (context, constraints) {
-                final width = constraints.maxWidth;
-                int crossAxisCount = width > 600 ? 2 : 1;
+            body: Expanded(
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  final width = constraints.maxWidth;
+                  final crossAxisCount = width > 600 ? 2 : 1; 
 
-                return GridView.builder(
-                  padding: const EdgeInsets.all(16),
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: crossAxisCount,
-                    mainAxisSpacing: 16,
-                    crossAxisSpacing: 16,
-                    childAspectRatio: 3 / 2,
-                  ),
-                  itemCount: sampleProducts.length,
-                  itemBuilder: (context, index) {
-                    final product = sampleProducts[index];
-                    return SaleProductTile(
-                      title: product.title,
-                      imageUrl: product.imageUrl,
-                      salePrice: product.price,
-                      originalPrice: product.originalPrice ?? '',
-                    );
-                  },
-                );
-              },
+                  return GridView.builder(
+                    padding: const EdgeInsets.all(16),
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: crossAxisCount,
+                      mainAxisSpacing: 16,
+                      crossAxisSpacing: 16,
+                      childAspectRatio: 3 / 2,
+                    ),
+                    itemCount: sampleProducts.length,
+                    itemBuilder: (context, index) {
+                      final product = sampleProducts[index];
+                      return GestureDetector(
+                        onTap: () => Navigator.pushNamed(
+                          context,
+                          '/product',
+                          arguments: product, 
+                        ),
+                        child: SaleProductTile(
+                          title: product.title,
+                          imageUrl: product.imageUrl,
+                          salePrice: product.price,
+                          originalPrice: product.originalPrice ?? '',
+                        ),
+                      );
+                    },
+                  );
+                },
+              ),
             ),
+      bottomNavigationBar: const Footer()
           ),
         ],
       ),
-      bottomNavigationBar: const Footer()
     );
    }
 }
