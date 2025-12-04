@@ -56,7 +56,7 @@ class _ProductPageState extends State<ProductPage> {
 
                   // Price
                   Text(
-                    '£${product.price.toString()}',
+                    product.price.toString(),
                     style: const TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,

@@ -87,7 +87,7 @@ class SalePage extends StatelessWidget {
                                   Row(
                                     children: [
                                       Text(
-                                        '£${product.price}',
+                                        product.price,
                                         style: const TextStyle(
                                             color: Colors.red,
                                             fontWeight: FontWeight.bold),
@@ -95,7 +95,7 @@ class SalePage extends StatelessWidget {
                                       const SizedBox(width: 8),
                                       if (product.originalPrice != null)
                                         Text(
-                                          '£${product.originalPrice}',
+                                          product.originalPrice!,
                                           style: const TextStyle(
                                               decoration:
                                                   TextDecoration.lineThrough),

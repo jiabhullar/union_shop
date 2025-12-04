@@ -184,16 +184,20 @@ class HomePage extends StatelessWidget {
                     left: 24,
                     right: 24,
                     top: 80,
-                    child: Column(
+                    child: LayoutBuilder(
+                      builder: (context, constraints) {
+                        double fontSize = constraints.maxWidth < 400 ? 20 : 36;
+                        double lineHeight = constraints.maxWidth < 400 ? 1.2 : 1.0;
+                    return Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        const Text(
+                        Text(
                           'Explore the Union Shop Collection',
                           style: TextStyle(
-                            fontSize: 36,
+                            fontSize: fontSize,
                             fontWeight: FontWeight.bold,
                             color: Colors.black,
-                            height: 0.5,
+                            height: lineHeight,
                           ),
                         ),
                         const SizedBox(height: 16),
@@ -207,25 +211,28 @@ class HomePage extends StatelessWidget {
                           ),
                           child: const Text('BROWSE PRODUCTS'),
                         ),
-                      ],
+                        
+                        const SizedBox(height: 16),
+                        ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const AboutUsPage()),
+                            );
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: const Color(0xFF4d2963),
+                            foregroundColor: Colors.white,
+                          ),
+                          child: const Text('ABOUT US'),
+                            ),
+                          ],
+                        );
+                      },
                     ),
                   ),
                 ],
               ),
-            ),
-
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const AboutUsPage()),
-                );
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFF4d2963),
-                foregroundColor: Colors.white,
-              ),
-              child: const Text('ABOUT US'),
             ),
             const Footer()
           ],
