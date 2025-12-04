@@ -18,27 +18,35 @@ class _ProductPageState extends State<ProductPage> {
 
   @override
   Widget build(BuildContext context) {
-    final isDesktop = MediaQuery.of(context).size.width > 600;
+    final product = widget.product;
 
     return Scaffold(
       appBar: const NavBar(),
       body: Column(
         children: [
-        Expanded(
-          child: SingleChildScrollView(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            // Top banner
-            Container(
-              width: double.infinity,
-              color: const Color(0xFF4d2963),
-              padding: const EdgeInsets.symmetric(vertical: 12),
-              child: const Text(
-                'The Union Shop - Product Details',
-                textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.white, fontSize: 16),
-              ),
-            ),
+          Expanded(
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Product Image
+                  SizedBox(
+                    width: double.infinity,
+                    height: 250,
+                    child: Image.asset(
+                      product.imageUrl,
+                      fit: BoxFit.cover,
+                      errorBuilder: (_, __, ___) => Container(
+                        color: Colors.grey[300],
+                        child: const Center(
+                          child: Icon(Icons.image_not_supported, size: 64),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+
 
             Padding(
               padding: const EdgeInsets.all(16),
