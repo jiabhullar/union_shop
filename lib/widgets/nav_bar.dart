@@ -5,11 +5,14 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isWide = MediaQuery.of(context).size.width > 700;
+
     return Container(
       color: const Color(0xFF4d2963),
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Row(
         children: [
+          // Left side
           TextButton(
             onPressed: () => Navigator.pushNamed(context, '/'),
             child: const Text(
@@ -22,76 +25,87 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
             ),
           ),
 
-          const Spacer(),
+          // Menu (scrollable instead of Spacer)
+          Expanded(
+            child: isWide
+                ? SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        _navButton(context, 'Home', '/'),
+                        _navButton(context, 'About', '/about'),
+                        _navButton(context, 'Collections', '/collections'),
 
-          if (MediaQuery.of(context).size.width > 600) ...[
-            TextButton(
-              onPressed: () => Navigator.pushNamed(context, '/'),
-              child: const Text('Home', style: TextStyle(color: Colors.white)),
-            ),
-            TextButton(
-              onPressed: () => Navigator.pushNamed(context, '/about'),
-              child: const Text('About', style: TextStyle(color: Colors.white)),
-            ),
-            TextButton(
-              onPressed: () => Navigator.pushNamed(context, '/collections'),
-              child: const Text('Collections', style: TextStyle(color: Colors.white)),
-            ),
-            PopupMenuButton<String>(
-              child: const Text('Print Shack', style: TextStyle(color: Colors.white)),
-              onSelected: (value) {
-                Navigator.pushNamed(context, value);
-              },
-              itemBuilder: (_) => [
-                const PopupMenuItem(
-                  value: '/personalise',
-                  child: Text('Print Shack'),
-                ),
-                const PopupMenuItem(
-                  value: '/personalise_about',
-                  child: Text('About Print Shack'),
-                ),
-              ],
-            ),
-            TextButton(
-              onPressed: () => Navigator.pushNamed(context, '/sale'),
-              child: const Text('Sale', style: TextStyle(color: Colors.white)),
-            ),
+                        PopupMenuButton<String>(
+                          child: const Text(
+                            'Print Shack',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          onSelected: (value) {
+                            Navigator.pushNamed(context, value);
+                          },
+                          itemBuilder: (_) => const [
+                            PopupMenuItem(
+                              value: '/personalise',
+                              child: Text('Print Shack'),
+                            ),
+                            PopupMenuItem(
+                              value: '/personalise_about',
+                              child: Text('About Print Shack'),
+                            ),
+                          ],
+                        ),
 
-            TextButton(
-              onPressed: () => Navigator.pushNamed(context, '/cart'),
-              child: const Text('Cart', style: TextStyle(color: Colors.white)),
-            ),
-            TextButton(
-              onPressed: () => Navigator.pushNamed(context, '/auth'),
-              child: const Text('Account', style: TextStyle(color: Colors.white)),
-            ),
-  ]else ...[
-  IconButton(
-    icon: const Icon(Icons.menu, color: Colors.white),
-    onPressed: () {
-      showModalBottomSheet(
-        context: context,
-        builder: (_) => Column(
-          children: [
-            ListTile(title: const Text("Home"), onTap: () => Navigator.pushNamed(context, '/')),
-            ListTile(title: const Text("About"), onTap: () => Navigator.pushNamed(context, '/about')),
-            ListTile(title: const Text("Collections"), onTap: () => Navigator.pushNamed(context, '/collections')),
-            ListTile(title: const Text("Print Shack"), onTap: () => Navigator.pushNamed(context, '/personalise')),
-            ListTile(title: const Text("About Print Shack"), onTap: () => Navigator.pushNamed(context, '/personalise_about')),
-            ListTile(title: const Text("Sale"),onTap: () {Navigator.pushNamed(context, '/sale');},),
-            ListTile(title: const Text("Cart"), onTap: () => Navigator.pushNamed(context, '/cart')),
-            ListTile(title: const Text("Account"), onTap: () => Navigator.pushNamed(context, '/auth')),
-          ],
-        ),
-      );
-    },
-  )
+                        _navButton(context, 'Sale', '/sale'),
+                        _navButton(context, 'Cart', '/cart'),
+                        _navButton(context, 'Account', '/auth'),
+                      ],
+                    ),
+                  )
+                : Align(
+                    alignment: Alignment.centerRight,
+                    child: IconButton(
+                      icon: const Icon(Icons.menu, color: Colors.white),
+                      onPressed: () {
+                        showModalBottomSheet(
+                          context: context,
+                          builder: (_) => ListView(
+                            children: [
+                              _sheetItem(context, "Home", '/'),
+                              _sheetItem(context, "About", '/about'),
+                              _sheetItem(context, "Collections", '/collections'),
+                              _sheetItem(context, "Print Shack", '/personalise'),
+                              _sheetItem(context, "About Print Shack", '/personalise_about'),
+                              _sheetItem(context, "Sale", '/sale'),
+                              _sheetItem(context, "Cart", '/cart'),
+                              _sheetItem(context, "Account", '/auth'),
+                            ],
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+          ),
         ],
-      ],
       ),
     );
   }
-    @override
-    Size get preferredSize => const Size.fromHeight(60);
+
+  Widget _navButton(BuildContext context, String label, String route) {
+    return TextButton(
+      onPressed: () => Navigator.pushNamed(context, route),
+      child: Text(label, style: const TextStyle(color: Colors.white)),
+    );
+  }
+
+  Widget _sheetItem(BuildContext context, String label, String route) {
+    return ListTile(
+      title: Text(label),
+      onTap: () => Navigator.pushNamed(context, route),
+    );
+  }
+
+  @override
+  Size get preferredSize => const Size.fromHeight(60);
 }

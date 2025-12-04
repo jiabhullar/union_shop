@@ -14,3 +14,5 @@ Before running the project, ensure you have:
 - (Optional) VS Code or Android Studio with Flutter extensions
 
 ## Setup 
+1. Clone the repository - git clone https://github.com/jiabhullar/union_shop.git
+cd union_shop
