@@ -14,27 +14,29 @@ class SalePage extends StatelessWidget {
     .toList();
 
     return Scaffold(
-          return Scaffold(
       appBar: const NavBar(),
       body: LayoutBuilder(
         builder: (context, constraints) {
           final width = constraints.maxWidth;
           int crossAxisCount = width > 600 ? 2 : 1;
-          
-            Container(
-              width: double.infinity,
-              padding: const EdgeInsets.all(16.0),
-              color: Colors.redAccent,
-              child: const Text(
-                'SALE - UP TO 50% OFF!',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
+
+            
+          return Column(
+            children: [
+              Container(
+                width: double.infinity,
+                color: Colors.redAccent,
+                padding: const EdgeInsets.symmetric(vertical: 12),
+                child: const Center(
+                  child: Text(
+                    'SALE - UP TO 50% OFF!',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16),
+                  ),
                 ),
               ),
-            ),
             const SizedBox(height: 16),
 
             Padding(
