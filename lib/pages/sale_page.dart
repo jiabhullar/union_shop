@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:union_shop/services/product_service.dart';
 import 'package:union_shop/widgets/footer.dart';
 import 'package:union_shop/models/sale_product_tile.dart';
+import 'package:union_shop/widgets/nav_bar.dart';
 
 class SalePage extends StatelessWidget {
   const SalePage({super.key});
@@ -13,7 +14,7 @@ class SalePage extends StatelessWidget {
     .toList();
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Sale')),
+      appBar: const NavBar(),
       body: SingleChildScrollView(
         child: Column(
           children: [
