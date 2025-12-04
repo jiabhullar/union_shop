@@ -57,6 +57,7 @@ class SalePage extends StatelessWidget {
           ],
         ),
       ),
+      bottomNavigationBar: const Footer()
     );
   }
 }
