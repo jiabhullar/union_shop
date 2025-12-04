@@ -7,7 +7,6 @@ import 'package:union_shop/pages/personalisation_page.dart';
 
 class ProductPage extends StatefulWidget {
   final Product product;
-
   const ProductPage({Key? key, required this.product}) : super(key: key);
 
   @override
@@ -23,10 +22,12 @@ class _ProductPageState extends State<ProductPage> {
 
     return Scaffold(
       appBar: const NavBar(),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
+      body: Column(
+        children: [
+        Expanded(
+          child: SingleChildScrollView(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
             // Top banner
             Container(
               width: double.infinity,
