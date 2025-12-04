@@ -24,5 +24,14 @@ void main() {
       },
     ));
 
+      await tester.pumpAndSettle();
+
+      expect(find.text('Placeholder Product'), findsOneWidget);
+      expect(find.textContaining('£10.00'), findsOneWidget);
+
+      await tester.tap(find.byType(ProductCard));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Placeholder Product'), findsWidgets);
   });
 }
