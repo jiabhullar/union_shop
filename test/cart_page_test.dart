@@ -10,4 +10,25 @@ void main() {
     CartService.instance.clearCart();
     await tester.pumpWidget(const MaterialApp(home: CartPage()));
     await tester.pumpAndSettle();
+
+    expect(find.text('Your cart is empty'), findsOneWidget);
+
+        
+    final product = Product(
+      title: 'CartTest',
+      price: '5.00',
+      imageUrl: 'assets/images/test.jpg',
+      tag: 'all',
+      description: 'desc',
+
+    );
+
+    CartService.instance.addToCart(product, quantity: 2, size: 'M');
+
+    await tester.pumpWidget(const MaterialApp(home: CartPage()));
+    await tester.pumpAndSettle();
+
+    expect(find.text('CartTest'), findsOneWidget);
+    expect(find.text('Total:'), findsOneWidget);
   });
+}
