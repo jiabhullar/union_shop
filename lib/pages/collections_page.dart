@@ -24,34 +24,52 @@ class CollectionsPage extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           Scaffold(
-            appBar: const NavBar(),
-            body: Expanded(
-              child: LayoutBuilder(
-                builder: (context, constraints) {
-                  final width = constraints.maxWidth;
-                  final crossAxisCount = width > 600 ? 2 : 1; 
+  appBar: const NavBar(),
+  body: SafeArea(
+    child: LayoutBuilder(
+      builder: (context, constraints) {
+        int crossAxisCount = constraints.maxWidth < 600 ? 1 : 2;
 
-                  return GridView.builder(
-                    padding: const EdgeInsets.all(16),
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: crossAxisCount,
-                      mainAxisSpacing: 16,
-                      crossAxisSpacing: 16,
-                      childAspectRatio: 3 / 2,
+        return GridView.builder(
+          padding: const EdgeInsets.all(16),
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: crossAxisCount,
+            mainAxisSpacing: 16,
+            crossAxisSpacing: 16,
+            childAspectRatio: 3 / 2,
+          ),
+          itemCount: sampleProducts.length,
+          itemBuilder: (context, index) {
+            final product = sampleProducts[index];
+            return GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => ProductPage(product: product),
+                  ),
+                );
+              },
+              child: Card(
+                child: Column(
+                  children: [
+                    Expanded(
+                      child: Image.asset(
+                        product.imageUrl,
+                        fit: BoxFit.cover,
+                        errorBuilder: (_, __, ___) =>
+                            const Icon(Icons.image_not_supported),
+                      ),
                     ),
-                    itemCount: sampleProducts.length,
-                    itemBuilder: (context, index) {
-                      final product = sampleProducts[index];
-                      return GestureDetector(
-                        onTap: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (_) => ProductPage(product: product)),
-                        ),
-                        child: SaleProductTile(
-                          title: product.title,
-                          imageUrl: product.imageUrl,
-                          salePrice: product.price,
-                          originalPrice: product.originalPrice ?? '',
+                    const SizedBox(height: 8),
+                    Text(
+                      product.title,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      textAlign: TextAlign.center,
+                              ),
+                            ],
+                          ),
                         ),
                       );
                     },
@@ -60,9 +78,8 @@ class CollectionsPage extends StatelessWidget {
               ),
             ),
           ),
-          const Footer()
         ],
       ),
     );
-   }
+  }
 }
