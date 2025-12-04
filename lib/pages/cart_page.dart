@@ -97,16 +97,16 @@ class _CartPageState extends State<CartPage> {
                     },
                   ),
                 ),
-               
-               
-               
-               
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Total: £${cart.getTotal().toStringAsFixed(2)}", style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                      Text(
+                        "Total: £${cart.getTotal().toStringAsFixed(2)}",
+                        style: const TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
                       ElevatedButton(
                         onPressed: () {
                           ScaffoldMessenger.of(context).showSnackBar(
@@ -120,7 +120,8 @@ class _CartPageState extends State<CartPage> {
                     ],
                   ),
                 ),
-                const Footer()
+
+                const Footer(),
               ],
             ),
     );
