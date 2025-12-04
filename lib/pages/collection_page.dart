@@ -13,7 +13,8 @@ class CollectionPage extends StatefulWidget {
   @override
   State<CollectionPage> createState() => _CollectionPageState();
 }
-class _CollectionPageState extends State<CollectionPage> {
+
+  class _CollectionPageState extends State<CollectionPage> {
   String selectedSort = "popular";
   String selectedFilter = "all";
 
@@ -49,4 +50,50 @@ class _CollectionPageState extends State<CollectionPage> {
       default:
         break;
     }
-  }
+
+    final start = currentPage * itemsPerPage;
+    final end = (start + itemsPerPage).clamp(0, filteredProducts.length);
+    final pageItems = filteredProducts.sublist(start, end);
+
+    return Scaffold(
+      appBar: const NavBar(),
+      bottomNavigationBar: const Footer(),
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          final bool isWide = constraints.maxWidth > 800;
+
+          return Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              children: [
+                Text(
+                  widget.collectionName,
+                  style: const TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+
+                const SizedBox(height: 16),
+
+                // Sort + Filter
+                Row(
+                  children: [
+                    Expanded(
+                      child: DropdownButtonFormField<String>(
+                        initialValue: selectedSort,
+                        decoration: const InputDecoration(
+                          labelText: "Sort by",
+                          border: OutlineInputBorder(),
+                        ),
+                        items: const [
+                          DropdownMenuItem(value: "popular", child: Text("Most Popular")),
+                          DropdownMenuItem(value: "price_low", child: Text("Price: Low to High")),
+                          DropdownMenuItem(value: "price_high", child: Text("Price: High to Low")),
+                        ],
+                        onChanged: (value) {
+                          setState(() => selectedSort = value!);
+                        },
+                      ),
+                    ),
+                    
