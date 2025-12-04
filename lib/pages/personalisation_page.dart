@@ -74,7 +74,7 @@ class _PersonalisationPageState extends State<PersonalisationPage> {
                   Product(
                     title: "Custom Print",
                     price: "£${selectedProductType == "T-Shirt" ? 20 : selectedProductType == "Hoodie" ? 35 : 10}",
-                    imageUrl: "assets/images/${selectedProductType.toLowerCase()}.png",
+                    imageUrl: "assets/images/${selectedProductType.toLowerCase()}.jpeg",
                     tag: "custom",
                     description: "Text: $textInput${selectedProductType != 'Mug' ? ', Colour: $colour' : ''}",
                   ),

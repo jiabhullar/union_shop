@@ -9,12 +9,13 @@ class CartPage extends StatefulWidget {
 
   @override
   State<CartPage> createState() => _CartPageState();
+
 }
 
 class _CartPageState extends State<CartPage> {
   void refresh() => setState(() {});
  
- @override
+  @override
   Widget build(BuildContext context) {
     final cart = CartService.instance;
     final List<CartItem> items = cart.items;
@@ -31,6 +32,7 @@ class _CartPageState extends State<CartPage> {
                   itemBuilder: (context, index) {
                     final CartItem item = items[index];
                     final price = double.tryParse(item.product.price.replaceAll('£', '')) ?? 0;
+
                     return Card(
                       margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                       child: Padding(
@@ -47,32 +49,59 @@ class _CartPageState extends State<CartPage> {
                                 errorBuilder: (_, __, ___) => const Icon(Icons.image_not_supported, size: 40),
                               ),
                             ),
-                          ],
-                      ),
-                    ),
-                  );
-                },
-              ),
-              const SizedBox(width: 12),
-                      Expanded(
+                            const SizedBox(width: 12),
+
+                                                  Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(product.title,
+                            Text(item.product.title,
                                 style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
                             Text("Size: ${item.size}"),
                             Text("£${price.toStringAsFixed(2)}"),
                           ],
                         ),
                       ),
-                              },
-                            ),
                           ],
-                        ),
-                      );
+                      ),
+                    ),
+                  );
+                },
+              ),
+              Column(
+                children: [
+                  IconButton(
+                    icon: const Icon(Icons.add),
+                    onPressed: () {
+                      setState(() => item.quantity++);
                     },
                   ),
-                ),
+                  Text(item.quantity.toString()),
+                  IconButton(
+                    icon: const Icon(Icons.remove),
+                    onPressed: () {
+                      if (item.quantity > 1) {
+                        setState(() => item.quantity--);
+                      }
+                    },
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.delete, color: Colors.red),
+                    onPressed: () {
+                      setState(() {
+                        CartService.instance.removeFromCart(item);
+                      });
+                    },
+                  ),
+                ],
+              ),
+            ],
+          ),
+        );
+               
+               
+               
+               
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Row(
@@ -92,7 +121,7 @@ class _CartPageState extends State<CartPage> {
                     ],
                   ),
                 ),
-                const Footer(),
+                const Footer()
               ],
             ),
     );
