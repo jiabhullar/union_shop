@@ -14,11 +14,13 @@ class SalePage extends StatelessWidget {
     .toList();
 
     return Scaffold(
+          return Scaffold(
       appBar: const NavBar(),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            // Banner
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          final width = constraints.maxWidth;
+          int crossAxisCount = width > 600 ? 2 : 1;
+          
             Container(
               width: double.infinity,
               padding: const EdgeInsets.all(16.0),
