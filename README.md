@@ -69,4 +69,19 @@ lib/
  ┃ ┗ sample_products.dart
  ┣ main.dart
 
- 
+ ## Known Issues / Limitations: 
+- Authentication is a placeholder
+- Some pages still need polished styling
+
+## Future Improvements:
+- Firebase authentication 
+- User profiles
+- Order history
+- Admin product uploader
+- Dark mode
+
+## Contact:
+Gurjia Bhullar
+Email: jiakbhullar@gmail.com
+
+GitHub: https://github.com/jiabhullar
