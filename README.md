@@ -21,3 +21,52 @@ cd union_shop
 
 3. Run the project (on Web) - flutter run (-d chrome)
 
+## Usage
+Home Page: 
+- Displays hero banner with call-to-action
+- Popular product previews
+
+Collections Page:
+- Responsive grid (no overflow)
+- Each item opens a Product page
+
+Product Page:
+- Displays product image, description, price, and Add to Cart button
+
+Cart:
+- Shows items, quantity, and totals
+- Remove or adjust items
+
+Account:
+- Placeholder authorisation
+
+## Project Structure: 
+lib/
+ ┣ widgets/
+ ┃ ┣ nav_bar.dart
+ ┃ ┣ product_card.dart
+ ┃ ┗ footer.dart
+ ┣ pages/
+ ┃ ┣ about_us.dart
+ ┃ ┣ auth_page.dart
+ ┃ ┣ cart_page.dart
+ ┃ ┣ collection_page.dart
+ ┃ ┣ collections_page.dart
+ ┃ ┣ personalisation_page.dart
+ ┃ ┣ personalisation_about_page.dart
+ ┃ ┣ product_page.dart
+ ┃ ┗ sale_page.dart
+ ┣ services/
+ ┃ ┣ collection_service.dart
+ ┃ ┣ product_service.dart
+ ┃ ┗ cart_service.dart
+ ┣ models/
+ ┃ ┣ cart_item.dart
+ ┃ ┣ collection.dart
+ ┃ ┣ product.dart
+ ┃ ┗ sale_product.dart
+ ┣ data/
+ ┃ ┗ sample_products.dart
+ ┣ main.dart
+
+ 
