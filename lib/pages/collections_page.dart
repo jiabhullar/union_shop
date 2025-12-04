@@ -54,6 +54,7 @@ class CollectionsPage extends StatelessWidget {
           const Footer()
         ],
       ),
+      bottomNavigationBar: const Footer()
     );
    }
 }
