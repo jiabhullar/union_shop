@@ -89,7 +89,7 @@ class _ProductPageState extends State<ProductPage> {
                   ),
                   const SizedBox(height: 16),
 
-                  // Size Dropdown (only for clothing or custom items)
+                  // Size Dropdown
                   if (widget.product.tag == "clothing" ||
                       widget.product.tag == "custom")
                     DropdownButton<String>(
