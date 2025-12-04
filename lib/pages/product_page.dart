@@ -134,6 +134,7 @@ class _ProductPageState extends State<ProductPage> {
           ),
         ],
       ),
+      bottomNavigationBar: const Footer()
     );
   }
 }
