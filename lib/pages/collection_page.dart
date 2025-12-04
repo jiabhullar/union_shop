@@ -3,7 +3,6 @@ import 'package:union_shop/widgets/nav_bar.dart';
 import 'package:union_shop/models/product.dart';
 import 'package:union_shop/widgets/product_card.dart';
 import 'package:union_shop/services/product_service.dart';
-import 'package:union_shop/widgets/footer.dart';
 
 class CollectionPage extends StatefulWidget {
   final String collectionName;
@@ -57,7 +56,6 @@ class CollectionPage extends StatefulWidget {
 
     return Scaffold(
       appBar: const NavBar(),
-      bottomNavigationBar: const Footer(),
       body: LayoutBuilder(
         builder: (context, constraints) {
           final bool isWide = constraints.maxWidth > 800;
@@ -123,7 +121,7 @@ class CollectionPage extends StatefulWidget {
                   child: GridView.builder(
                     padding: EdgeInsets.zero,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: isWide ? 4 : 2,
+                      crossAxisCount: isWide ? 4: 2,
                       crossAxisSpacing: 16,
                       mainAxisSpacing: 16,
                       childAspectRatio: isWide ? 3/4 : 2/3,
