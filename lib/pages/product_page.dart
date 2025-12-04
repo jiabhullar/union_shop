@@ -72,8 +72,6 @@ class _ProductPageState extends State<ProductPage> {
                   const SizedBox(height: 16),
 
                   // Size Dropdown
-                  if (widget.product.tag == "clothing" ||
-                      widget.product.tag == "custom")
                     DropdownButton<String>(
                       value: selectedSize,
                       items: ['S', 'M', 'L', 'XL']
@@ -84,9 +82,7 @@ class _ProductPageState extends State<ProductPage> {
                         setState(() => selectedSize = value!);
                       },
                     ),
-
                   const SizedBox(height: 16),
-
                   // Quantity Selector
                   Row(
                     children: [
@@ -104,7 +100,6 @@ class _ProductPageState extends State<ProductPage> {
                     ],
                   ),
                   const SizedBox(height: 16),
-
                   // Add to Cart Button
                   ElevatedButton(
                     onPressed: () {
@@ -122,7 +117,6 @@ class _ProductPageState extends State<ProductPage> {
                     child: const Text("Add to Cart"),
                   ),
                   const SizedBox(height: 8),
-
                   // Personalise Button
                   ElevatedButton(
                     onPressed: () {
@@ -137,11 +131,8 @@ class _ProductPageState extends State<ProductPage> {
                 ],
               ),
             ),
-
-            const SizedBox(height: 24),
-            const Footer(),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
