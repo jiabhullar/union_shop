@@ -58,7 +58,7 @@ class _CartPageState extends State<CartPage> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(item.product.title,
+                            Text(product.title,
                                 style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
                             Text("Size: ${item.size}"),
                             Text("£${price.toStringAsFixed(2)}"),
