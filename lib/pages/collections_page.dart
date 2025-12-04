@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:union_shop/pages/collection_page.dart';
+import 'package:union_shop/data/sample_products.dart';
+import 'package:union_shop/models/sale_product_tile.dart';
 import 'package:union_shop/widgets/nav_bar.dart';
 import 'package:union_shop/widgets/footer.dart';
 import 'package:union_shop/services/collection_service.dart';
@@ -21,36 +22,31 @@ class CollectionsPage extends StatelessWidget {
             style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 16),
-          Expanded(
-            child: GridView.builder(
-              padding: const EdgeInsets.all(16),
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3,
-                childAspectRatio: 1,
-                crossAxisSpacing: 16,
-                mainAxisSpacing: 16,
-              ),
-              itemCount: collections.length,
-              itemBuilder: (context, index) {
-                final c = collections[index];
-                return GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => CollectionPage(collectionName: c.name),
-                      ),
+          Scaffold(
+            appBar: const NavBar(),
+            body: LayoutBuilder(
+              builder: (context, constraints) {
+                final width = constraints.maxWidth;
+                int crossAxisCount = width > 600 ? 2 : 1;
+
+                return GridView.builder(
+                  padding: const EdgeInsets.all(16),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: crossAxisCount,
+                    mainAxisSpacing: 16,
+                    crossAxisSpacing: 16,
+                    childAspectRatio: 3 / 2,
+                  ),
+                  itemCount: sampleProducts.length,
+                  itemBuilder: (context, index) {
+                    final product = sampleProducts[index];
+                    return SaleProductTile(
+                      title: product.title,
+                      imageUrl: product.imageUrl,
+                      salePrice: product.price,
+                      originalPrice: product.originalPrice ?? '',
                     );
                   },
-                  child: Column(
-                    children: [
-                      Expanded(
-                        child: Image.asset(c.image, fit: BoxFit.cover),
-                      ),
-                      const SizedBox(height: 8),
-                      Text(c.name, style: const TextStyle(fontSize: 18)),
-                    ],
-                  ),
                 );
               },
             ),
