@@ -96,4 +96,45 @@ class CollectionPage extends StatefulWidget {
                         },
                       ),
                     ),
-                    
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: DropdownButtonFormField<String>(
+                        initialValue: selectedFilter,
+                        decoration: const InputDecoration(
+                          labelText: "Filter by",
+                          border: OutlineInputBorder(),
+                        ),
+                        items: const [
+                          DropdownMenuItem(value: "all", child: Text("All Items")),
+                          DropdownMenuItem(value: "new", child: Text("New")),
+                          DropdownMenuItem(value: "sale", child: Text("Sale")),
+                        ],
+                        onChanged: (value) {
+                          setState(() => selectedFilter = value!);
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+
+                const SizedBox(height: 16),
+
+                Expanded(
+                  child: GridView.builder(
+                    padding: EdgeInsets.zero,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: isWide ? 4 : 2,
+                      crossAxisSpacing: 16,
+                      mainAxisSpacing: 16,
+                      childAspectRatio: isWide ? 3/4 : 2/3,
+                    ),
+                    itemCount: pageItems.length,
+                    itemBuilder: (context, index) {
+                      return ProductCard(product: pageItems[index]);
+                    },
+                  ),
+                ),
+
+                const SizedBox(height: 16),
+
+                
