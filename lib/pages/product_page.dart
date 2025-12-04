@@ -46,55 +46,28 @@ class _ProductPageState extends State<ProductPage> {
                     ),
                   ),
                   const SizedBox(height: 16),
-
-
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // Product Image
-                  Image.asset(
-                    widget.product.imageUrl,
-                    width: double.infinity,
-                    height: isDesktop ? 400 : 250,
-                    fit: BoxFit.contain,
-                    errorBuilder: (context, error, stackTrace) {
-                      return Container(
-                        color: Colors.grey[300],
-                        width: double.infinity,
-                        height: isDesktop ? 400 : 250,
-                        child: const Center(
-                          child: Icon(Icons.image_not_supported, size: 64),
-                        ),
-                      );
-                    },
-                  ),
-                  const SizedBox(height: 24),
-
-                  // Product Name
+                  // Title
                   Text(
-                    widget.product.title,
+                    product.title,
                     style: const TextStyle(
                         fontSize: 28, fontWeight: FontWeight.bold),
                   ),
-                  const SizedBox(height: 12),
+                  const SizedBox(height: 8),
 
-                  // Product Price
+                  // Price
                   Text(
-                    widget.product.price,
+                    '£${product.price.toString()}',
                     style: const TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
                         color: Color(0xFF4d2963)),
                   ),
-                  const SizedBox(height: 24),
+                  const SizedBox(height: 16),
 
-                  // Product Description
+                  // Description
                   Text(
-                    widget.product.description,
-                    style: const TextStyle(
-                        fontSize: 18, fontWeight: FontWeight.w600),
+                    product.description,
+                    style: const TextStyle(fontSize: 16),
                   ),
                   const SizedBox(height: 16),
 
