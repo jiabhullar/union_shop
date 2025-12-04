@@ -16,3 +16,8 @@ Before running the project, ensure you have:
 ## Setup 
 1. Clone the repository - git clone https://github.com/jiabhullar/union_shop.git
 cd union_shop
+
+2. Install dependencies - flutter pub get
+
+3. Run the project (on Web) - flutter run (-d chrome)
+
