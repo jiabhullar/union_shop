@@ -13,7 +13,7 @@ class SalePage extends StatelessWidget {
     .toList();
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Sale')), // or your NavBar
+      appBar: AppBar(title: const Text('Sale')),
       body: SingleChildScrollView(
         child: Column(
           children: [

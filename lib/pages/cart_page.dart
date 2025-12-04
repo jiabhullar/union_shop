@@ -31,11 +31,13 @@ class _CartPageState extends State<CartPage> {
                   itemBuilder: (context, index) {
                     final CartItem item = items[index];
                     final price = double.tryParse(item.product.price.replaceAll('£', '')) ?? 0;
-                    return ListTile(
-                      leading: Image.asset(item.product.imageUrl, width: 50, height: 50),
-                      title: Text(item.product.title),
-                      subtitle: Text('Size: ${item.size} — £${price.toStringAsFixed(2)}'),
-                        trailing: Row(
+                    return Card(
+                      margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                      child: Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start
+                          children: [
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             IconButton(
