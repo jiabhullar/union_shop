@@ -137,4 +137,30 @@ class CollectionPage extends StatefulWidget {
 
                 const SizedBox(height: 16),
 
-                
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      onPressed: currentPage > 0
+                          ? () => setState(() => currentPage--)
+                          : null,
+                      child: const Text("Previous"),
+                    ),
+                    const SizedBox(width: 16),
+                    ElevatedButton(
+                      onPressed: (currentPage + 1) * itemsPerPage <
+                              filteredProducts.length
+                          ? () => setState(() => currentPage++)
+                          : null,
+                      child: const Text("Next"),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          );
+        },
+      ),
+    );
+  }
+} 
