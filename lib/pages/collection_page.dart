@@ -133,11 +133,11 @@ class _CollectionPageState extends State<CollectionPage> {
                   ),
                 ],
               ),
+              const Footer()
             ],
           ),
         ),
       ),
-      bottomNavigationBar: const Footer(),
     );
   }
 }

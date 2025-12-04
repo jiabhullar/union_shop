@@ -128,13 +128,13 @@ class _ProductPageState extends State<ProductPage> {
                     },
                     child: const Text("Personalise"),
                   ),
+                  const Footer()
                 ],
               ),
             ),
           ),
         ],
       ),
-      bottomNavigationBar: const Footer()
     );
   }
 }

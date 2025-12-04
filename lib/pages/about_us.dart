@@ -38,12 +38,11 @@ class AboutUsPage extends StatelessWidget {
               style: TextStyle(fontSize: 18, height: 1.5),
             ),
             const SizedBox(height: 130),
-            const Footer(),
+            const Footer()
             ],
           ),
         ),
       ),
-      bottomNavigationBar: const Footer()
     );
   }
 }

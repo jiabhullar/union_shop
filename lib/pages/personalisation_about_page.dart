@@ -24,11 +24,10 @@ class PersonalisationAboutPage extends StatelessWidget {
               style: TextStyle(fontSize: 18, height: 1.5),
             ),
             SizedBox(height: 32),
-            Footer(),
-          ],
+            Footer()
+          ], 
         ),
       ),
-      bottomNavigationBar: Footer(),
     );
   }
 }

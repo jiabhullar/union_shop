@@ -112,11 +112,11 @@ class SalePage extends StatelessWidget {
                   },
                 ),
               ),
+              const Footer()
             ],
           );
         },
       ),
-      bottomNavigationBar: const Footer()
     );
   }
 }

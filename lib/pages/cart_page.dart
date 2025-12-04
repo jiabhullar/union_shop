@@ -120,9 +120,9 @@ class _CartPageState extends State<CartPage> {
                     ],
                   ),
                 ),
+                const Footer()
               ],
             ),
-      bottomNavigationBar: const Footer(),
     );
   }
 }

@@ -68,7 +68,7 @@ class _PersonalisationPageState extends State<PersonalisationPage> {
       style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
     ),
     const SizedBox(height: 16),
-    
+
             ElevatedButton(
               onPressed: () {
                 CartService.instance.addToCart(
@@ -92,10 +92,10 @@ class _PersonalisationPageState extends State<PersonalisationPage> {
                 },
                 child: const Text('Learn more about Print Shack'),
             ),
+            const Footer()
           ],
         ),
       ),
-      bottomNavigationBar: const Footer(),
     );
   }
 }

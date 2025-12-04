@@ -103,11 +103,11 @@ class AuthPage extends StatelessWidget {
                     ],
                   ),
                 ],
-              )
+              ),
+              const Footer()
             ],
         ),
       ),
-      bottomNavigationBar: const Footer(),
     );
   }
 }
